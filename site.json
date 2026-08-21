@@ -1,0 +1,26 @@
+{
+  "site": {
+    "name": "Varanasi Sports Live",
+    "email": "",
+    "phone": "9506117861",
+    "whatsapp": "9506117861",
+    "location": "Varanasi, Uttar Pradesh, India",
+    "tagline": "Broadcast the game. Reach the audience. Build your event brand.",
+    "mainImage": "/assets/sports-live-banner.png",
+    "mainImageCaption": "VARANASI SPORTS LIVE — Live Streaming & Multi-Camera Production"
+  },
+  "events": [
+    {"title":"VARANASI SPORTS LIVE — YouTube Channel","date":"Live & scheduled streams","venue":"Online","link":"https://www.youtube.com/@VARANASISPORTSLIVE-h8p"}
+  ],
+  "gallery": [
+    {"url":"/assets/sports-corporate-logo.png","caption":"Sports + Corporate Events — Official Brand Mark"},
+    {"url":"/assets/sports-live-banner.png","caption":"Live Streaming & Multi-Camera Production"},
+    {"url":"/assets/logo.png","caption":"Varanasi Sports Live — Channel Identity"}
+  ],
+  "packages": [
+    {"name":"Mobile Starter","price":"₹3,999+","includes":"1 mobile setup, basic live stream, up to 4 hours"},
+    {"name":"Dual Angle","price":"₹7,999+","includes":"2 capture angles, operator, basic graphics, recording"},
+    {"name":"Pro 4-Camera","price":"₹14,999+","includes":"Up to 4 angles, streaming PC, graphics, recording"},
+    {"name":"Tournament","price":"₹24,999+","includes":"4-camera production, full-day coverage, custom requirements"}
+  ]
+}

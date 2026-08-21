@@ -1,0 +1,29 @@
+AB YE PACKAGE GITHUB KE LIYE FLAT HAI
+
+Is ZIP ko extract karne ke baad jo files dikhengi, unhe GitHub repository ke main level par upload karna hai.
+
+Main level par:
+package.json
+server.js
+index.html
+logo.png
+sports-live-banner.png
+youtube-channel-header-reference.png
+youtube-channel-info-reference.png
+sports-corporate-logo.png
+data/
+Dockerfile
+...
+
+Kisi public folder ko banane ki zarurat nahi hai.
+
+IMPORTANT:
+.env file GitHub par upload MAT karna.
+.env.example upload kar sakte hain.
+
+Render par ADMIN_PASSWORD_HASH ko Environment Variable/Secret ke roop me set karna hoga.
+Admin:
+ID = admin
+Password = T@smiya1
+
+Website ke visitors ko baad me sirf Render ka public URL kholna hoga.

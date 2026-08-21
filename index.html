@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Varanasi Sports Live | Sports Broadcasting & Live Streaming</title>
+  <meta name="description" content="Varanasi Sports Live — multi-camera sports broadcasting, live streaming, event coverage, highlights and promotional media." />
+  <meta name="theme-color" content="#090b10" />
+  <meta property="og:title" content="Varanasi Sports Live" />
+  <meta property="og:description" content="Broadcast the game. Reach the audience. Build your event brand." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="assets/logo.png" />
+  <style>
+    :root{
+      --bg:#07090d;
+      --panel:#10141b;
+      --panel2:#151a23;
+      --line:#27303d;
+      --text:#f4f7fb;
+      --muted:#9aa5b5;
+      --red:#ff304f;
+      --blue:#2b7fff;
+      --cyan:#37d5ff;
+      --gold:#ffcc55;
+      --green:#26d98a;
+      --shadow:0 20px 70px rgba(0,0,0,.38);
+      --radius:22px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:
+      radial-gradient(circle at 85% 10%,rgba(43,127,255,.14),transparent 28%),
+      radial-gradient(circle at 10% 20%,rgba(255,48,79,.11),transparent 24%),
+      var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    button,input,textarea,select{font:inherit}
+    .container{width:min(var(--max),calc(100% - 32px));margin:auto}
+    .topbar{border-bottom:1px solid var(--line);background:rgba(7,9,13,.78);backdrop-filter:blur(16px);position:sticky;top:0;z-index:50}
+    .nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.2px}
+    .brand img{width:46px;height:50px;object-fit:contain;border-radius:50%}
+    .brand span{font-size:15px}
+    .navlinks{display:flex;gap:22px;align-items:center}
+    .navlinks a{font-size:13px;color:#cbd3df}
+    .navlinks a:hover{color:#fff}
+    .menu{display:none;background:none;border:1px solid var(--line);color:#fff;border-radius:12px;padding:9px 12px}
+    .hero{padding:78px 0 50px;position:relative;overflow:hidden}
+    .heroGrid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;padding:7px 11px;border:1px solid #303947;background:#0d1118;border-radius:999px;color:#cfd7e3;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.12em}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 18px var(--red)}
+    h1{font-size:clamp(42px,6vw,78px);line-height:.98;margin:20px 0 18px;letter-spacing:-.045em}
+    .gradient{background:linear-gradient(100deg,#fff 0%,#b9d6ff 50%,#ff6178 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{font-size:18px;color:#b3bdcb;max-width:690px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 17px;border-radius:13px;border:1px solid var(--line);font-weight:850;font-size:14px;cursor:pointer;transition:.2s}
+    .btn:hover{transform:translateY(-2px)}
+    .btnPrimary{background:linear-gradient(135deg,var(--red),#ff5c73);border-color:transparent;box-shadow:0 12px 35px rgba(255,48,79,.2)}
+    .btnBlue{background:linear-gradient(135deg,var(--blue),#45a4ff);border-color:transparent;box-shadow:0 12px 35px rgba(43,127,255,.2)}
+    .btnGhost{background:#11161e}
+    .trust{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .trust span{border:1px solid var(--line);background:#0d1117;border-radius:999px;padding:7px 10px;font-size:12px;color:#aeb8c7}
+    .heroCard{background:linear-gradient(145deg,#141b25,#0d1118);border:1px solid #2a3442;border-radius:28px;padding:22px;box-shadow:var(--shadow);position:relative}
+    .screen{aspect-ratio:16/10;border-radius:19px;overflow:hidden;border:1px solid #344153;background:
+      linear-gradient(135deg,rgba(255,48,79,.18),rgba(43,127,255,.18)),
+      radial-gradient(circle at 50% 50%,#263348,#0a0e14 65%);display:grid;place-items:center;position:relative}
+    .screen img{width:125px;height:135px;object-fit:contain;filter:drop-shadow(0 15px 30px rgba(0,0,0,.5))}
+    .liveBadge{position:absolute;left:14px;top:14px;background:#f72d4c;color:#fff;padding:6px 9px;border-radius:8px;font-size:11px;font-weight:900}
+    .screenText{position:absolute;bottom:14px;left:14px;right:14px;display:flex;justify-content:space-between;align-items:end}
+    .screenText strong{font-size:13px}.screenText small{color:#aeb8c7}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}
+    .stat{background:#0c1118;border:1px solid var(--line);padding:12px;border-radius:14px}
+    .stat b{display:block;font-size:18px}.stat span{font-size:11px;color:var(--muted)}
+    section{padding:74px 0}
+    .sectionHead{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}
+    .sectionHead h2{font-size:clamp(28px,4vw,44px);margin:0;letter-spacing:-.035em}
+    .sectionHead p{max-width:570px;color:var(--muted);margin:0}
+    .kicker{color:#ff5b72;font-weight:900;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .card{background:linear-gradient(145deg,#11161e,#0d1117);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 10px 40px rgba(0,0,0,.15)}
+    .icon{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#172132;border:1px solid #2b394d;font-size:20px;margin-bottom:18px}
+    .card h3{margin:0 0 8px;font-size:19px}.card p{margin:0;color:var(--muted);font-size:14px}
+    .featureList{padding:0;margin:16px 0 0;list-style:none;display:grid;gap:9px}
+    .featureList li{font-size:13px;color:#c9d1dc;display:flex;gap:8px}.featureList li:before{content:"✓";color:var(--green);font-weight:900}
+
+    .siteTitle{text-align:center;font-size:clamp(28px,5vw,58px);font-weight:1000;letter-spacing:.08em;line-height:1;margin:4px 0 24px;background:linear-gradient(90deg,#fff,#7db7ff,#ff465f,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .navAdminBtn{border:1px solid #3b4859;background:#111722;color:#fff;padding:9px 12px;border-radius:10px;font-size:12px;font-weight:900;cursor:pointer}
+    .navAdminBtn:hover{border-color:#6c8fbe;background:#172131}
+    .mainContentImage{border:1px solid #354153;border-radius:25px;overflow:hidden;background:#0d121a;box-shadow:var(--shadow)}
+    .mainContentImage img{width:100%;height:auto;display:block;max-height:650px;object-fit:cover}
+    .mainContentCaption{padding:16px 18px;display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .mainContentCaption span{font-size:12px;color:var(--muted)}
+    .editChip{display:inline-flex;align-items:center;gap:5px;border:1px solid #344153;background:#111821;border-radius:999px;padding:5px 8px;font-size:10px;color:#b9c5d4}
+    .loginBox{width:min(430px,100%);margin:10vh auto;background:#0e131b;border:1px solid #354052;border-radius:22px;padding:24px;box-shadow:var(--shadow)}
+    .loginBox h2{margin:0 0 6px}.loginBox p{color:var(--muted);font-size:13px}
+    .loginError{display:none;color:#ff7c91;background:#29131a;border:1px solid #54202d;padding:9px 10px;border-radius:10px;font-size:12px;margin-top:8px}
+    .editBtn{background:#111923;border:1px solid #344153;color:#d7e0ec;border-radius:9px;padding:6px 9px;font-size:11px;cursor:pointer}
+    .editBtn:hover{border-color:#568cff}
+    .adminItem .itemActions{display:flex;gap:6px;flex-shrink:0}
+    .adminHint{font-size:11px;color:#7f8a99;margin-top:10px}
+    .brandShowcase{display:grid;grid-template-columns:.58fr 1.42fr;gap:18px;align-items:stretch}
+    .showcaseLogo,.showcaseBanner{padding:12px;overflow:hidden}
+    .showcaseLogo{display:flex;flex-direction:column;justify-content:center;align-items:center;background:radial-gradient(circle at 50% 40%,#17233a,#0b1017 72%)}
+    .showcaseLogo img{width:min(100%,430px);aspect-ratio:1/1;object-fit:contain;border-radius:18px}
+    .showcaseBanner img{width:100%;height:auto;display:block;border-radius:15px;border:1px solid #2d3949}
+    .showcaseCaption{padding:13px 7px 5px;display:flex;flex-direction:column;gap:3px}
+    .showcaseCaption strong{font-size:14px}.showcaseCaption span{font-size:11px;color:var(--muted)}
+    .equipment{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .equipment .card{padding:25px}
+    .tag{display:inline-block;font-size:11px;color:#dce6f4;border:1px solid #314052;background:#121923;padding:5px 8px;border-radius:999px;margin:4px 4px 0 0}
+    .package{position:relative;overflow:hidden}
+    .package.popular{border-color:#ff405d;box-shadow:0 0 0 1px rgba(255,64,93,.12),0 20px 60px rgba(255,48,79,.08)}
+    .popularLabel{position:absolute;right:16px;top:16px;background:#ff304f;color:#fff;padding:5px 8px;border-radius:7px;font-size:10px;font-weight:900}
+    .price{font-size:34px;font-weight:950;margin:12px 0 2px}.price small{font-size:12px;color:var(--muted);font-weight:600}
+    .editableNote{font-size:11px;color:#8e9aaa;margin-top:6px}
+    .event{display:grid;grid-template-columns:150px 1fr auto;gap:18px;align-items:center}
+    .eventThumb{aspect-ratio:16/10;border-radius:14px;background:linear-gradient(135deg,#1b2940,#161a25);border:1px solid #2c3747;display:grid;place-items:center;font-size:30px}
+    .event h3{margin:0 0 5px}.event p{margin:0;color:var(--muted);font-size:13px}
+    .status{display:inline-flex;gap:6px;align-items:center;font-size:10px;text-transform:uppercase;font-weight:900;color:#70e6b0;margin-bottom:7px}.status:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green)}
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .galleryItem{aspect-ratio:4/3;border-radius:17px;overflow:hidden;border:1px solid var(--line);background:#101620;position:relative}
+    .galleryItem img{width:100%;height:100%;object-fit:cover}
+    .galleryItem .caption{position:absolute;left:8px;right:8px;bottom:8px;padding:8px 9px;border-radius:10px;background:rgba(0,0,0,.62);backdrop-filter:blur(8px);font-size:11px}
+    .why{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px}
+    .process{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .step{border-top:2px solid #2d3847;padding-top:15px}.step b{font-size:11px;color:#ff6278}.step h3{margin:7px 0}.step p{font-size:13px;color:var(--muted);margin:0}
+    .cta{border:1px solid #354154;background:linear-gradient(135deg,rgba(43,127,255,.15),rgba(255,48,79,.12));border-radius:28px;padding:35px;display:flex;justify-content:space-between;gap:25px;align-items:center}
+    .cta h2{margin:0;font-size:clamp(28px,4vw,44px);letter-spacing:-.04em}.cta p{color:#b3bdcb;max-width:650px}
+    .contactGrid{display:grid;grid-template-columns:.8fr 1.2fr;gap:18px}
+    form{display:grid;gap:11px}.row{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+    label{font-size:11px;color:#9da8b7;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+    input,textarea,select{width:100%;margin-top:6px;border:1px solid #2c3746;background:#0b1017;color:#fff;border-radius:12px;padding:12px 13px;outline:none}
+    textarea{min-height:125px;resize:vertical}
+    input:focus,textarea:focus,select:focus{border-color:#568cff;box-shadow:0 0 0 3px rgba(43,127,255,.12)}
+    footer{border-top:1px solid var(--line);padding:28px 0;color:#8995a6;font-size:12px}
+    .footerGrid{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .footerLinks{display:flex;gap:14px;flex-wrap:wrap}
+    .adminBtn{position:fixed;right:16px;bottom:16px;width:48px;height:48px;border-radius:50%;border:1px solid #3a4657;background:#111722;color:#fff;cursor:pointer;z-index:80;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+    .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(10px);z-index:100;padding:20px;overflow:auto}
+    .modal.open{display:block}
+    .modalBox{width:min(920px,100%);margin:30px auto;background:#0e131b;border:1px solid #354052;border-radius:22px;padding:22px;box-shadow:var(--shadow)}
+    .modalHead{display:flex;justify-content:space-between;align-items:center;gap:20px}.modalHead h2{margin:0}
+    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.tab{border:1px solid var(--line);background:#121821;color:#b8c3d1;padding:9px 12px;border-radius:10px;cursor:pointer}.tab.active{background:#1b2a41;color:#fff;border-color:#3c6aa8}
+    .panel{display:none}.panel.active{display:block}
+    .adminGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .adminList{display:grid;gap:8px;margin-top:14px}.adminItem{display:flex;justify-content:space-between;gap:12px;align-items:center;border:1px solid var(--line);background:#0b1017;padding:10px 12px;border-radius:12px}.adminItem small{color:#8f9aaa}
+    .danger{background:#29131a;border-color:#54202d;color:#ff8ea0}
+    .hint{font-size:11px;color:#7f8a99}
+    .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:#eef4ff;color:#09111d;padding:11px 15px;border-radius:12px;font-weight:800;font-size:12px;opacity:0;pointer-events:none;transition:.25s;z-index:200}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    @media(max-width:900px){
+      .heroGrid,.why,.contactGrid,.equipment,.brandShowcase{grid-template-columns:1fr}
+      .grid4{grid-template-columns:repeat(2,1fr)}
+      .grid3{grid-template-columns:1fr 1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .process{grid-template-columns:1fr 1fr}
+      .navlinks{display:none}.menu{display:block}
+      .navlinks.open{display:flex;position:absolute;top:73px;left:0;right:0;background:#090d13;border-bottom:1px solid var(--line);padding:15px 16px;flex-direction:column;align-items:flex-start}
+    }
+    @media(max-width:620px){
+      .hero{padding-top:50px}.grid3,.grid4,.gallery,.process{grid-template-columns:1fr}
+      .event{grid-template-columns:1fr}.eventThumb{aspect-ratio:16/7}
+      .cta{display:block}.row,.adminGrid{grid-template-columns:1fr}
+      .sectionHead{display:block}.sectionHead p{margin-top:10px}
+      h1{font-size:48px}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#home">
+        <img src="assets/logo.png" alt="Varanasi Sports Live logo">
+        <span>VARANASI SPORTS LIVE</span>
+      </a>
+      <button class="menu" onclick="toggleMenu()">Menu</button>
+      <nav class="navlinks" id="navlinks">
+        <a href="#events">Events</a>
+        <a href="#services">Services</a>
+        <a href="#packages">Rates</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">Why Us</a>
+        <a href="#contact">Book Now</a>
+        <button class="navAdminBtn" onclick="openLogin()">🔐 Admin Login</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container heroGrid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> SPORTS BROADCASTING • VARANASI</div>
+          <div class="siteTitle">VARANASI SPORTS LIVE</div>
+          <h1>Make your match look <span class="gradient">broadcast‑grade.</span></h1>
+          <p class="lead">Live sports coverage using mobile production, S24 Ultra, iPhone 17 Pro and a modified 4K streaming PC — with multi-angle coverage, graphics, recording and event promotion built around your tournament.</p>
+          <div class="actions">
+            <a class="btn btnPrimary" href="https://www.youtube.com/@VARANASISPORTSLIVE-h8p" target="_blank" rel="noopener">▶ Watch YouTube Channel</a>
+            <a class="btn btnBlue" href="#contact">Request a Quote</a>
+            <a class="btn btnGhost" href="#events">Upcoming Events</a>
+          </div>
+          <div class="trust">
+            <span>📡 Live Streaming</span><span>🎥 Up to 4 Camera Angles</span><span>🖥️ 4K-Capable Workflow</span><span>🏏 Sports Focused</span>
+          </div>
+        </div>
+        <div class="heroCard">
+          <div class="screen">
+            <span class="liveBadge">● LIVE READY</span>
+            <img src="assets/logo.png" alt="">
+            <div class="screenText"><div><strong>VARANASI SPORTS LIVE</strong><br><small>Multi-angle sports coverage</small></div><div><small>YOUTUBE</small></div></div>
+          </div>
+          <div class="stats">
+            <div class="stat"><b>11.2K</b><span>YouTube subscribers*</span></div>
+            <div class="stat"><b>1,300+</b><span>Channel videos*</span></div>
+            <div class="stat"><b>1.26M+</b><span>Channel views*</span></div>
+          </div>
+          <div class="hint" style="margin-top:10px">*Figures shown from the channel information supplied for this website concept; update them whenever needed.</div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="showcase">
+      <div class="container">
+        <div class="sectionHead">
+          <div><div class="kicker">Brand & Production Showcase</div><h2>One brand. Two powerful visuals.</h2></div>
+          <p>Your circular Sports + Corporate Events identity works as the brand mark, while the wide production graphic communicates your complete live-streaming service at a glance.</p>
+        </div>
+        <div class="brandShowcase">
+          <div class="showcaseLogo card">
+            <img src="assets/sports-corporate-logo.png" alt="Varanasi Sports Live Corporate Events logo">
+            <div class="showcaseCaption"><strong>Official Brand Mark</strong><span>Sports • Live • Corporate Events</span></div>
+          </div>
+          <div class="showcaseBanner card">
+            <img src="assets/sports-live-banner.png" alt="Varanasi Sports Live sports broadcasting and live streaming banner">
+            <div class="showcaseCaption"><strong>Broadcasting & Promotion Banner</strong><span>Live streaming • Live scoring • Multiple camera angles • All sports & auction</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mainContent">
+      <div class="container">
+        <div class="sectionHead">
+          <div><div class="kicker">Featured</div><h2>Main Event Visual</h2></div>
+          <p>Use this space for your strongest promotional banner, tournament poster, match artwork or production photograph.</p>
+        </div>
+        <div id="mainImageWrap" class="mainContentImage"></div>
+      </div>
+    </section>
+
+    <section id="events">
+      <div class="container">
+        <div class="sectionHead">
+          <div><div class="kicker">Live & Upcoming</div><h2>Your event links, in one place.</h2></div>
+          <p>Add your YouTube live links, scheduled streams, match pages or registration links from the Admin panel. This section is designed to become the fastest route from your website to the actual event.</p>
+        </div>
+        <div id="eventList" class="card" style="display:grid;gap:12px"></div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="sectionHead">
+          <div><div class="kicker">What We Deliver</div><h2>Everything around the live game.</h2></div>
+          <p>Modern sports-broadcasting sites sell the outcome, not just the cameras: coverage, presentation, audience reach, sponsor visibility and post-event content.</p>
+        </div>
+        <div class="grid3">
+          <div class="card"><div class="icon">📡</div><h3>Live Streaming</h3><p>Stream matches and tournaments to your YouTube audience with a clean branded presentation.</p><ul class="featureList"><li>YouTube live integration</li><li>Stable encoder workflow</li><li>Live / upcoming event links</li></ul></div>
+          <div class="card"><div class="icon">🎥</div><h3>Multi-Camera Coverage</h3><p>Use different angles to follow the action instead of forcing viewers to watch one static frame.</p><ul class="featureList"><li>Main / wide angle</li><li>Close action angle</li><li>Mobile / sideline angle</li></ul></div>
+          <div class="card"><div class="icon">📊</div><h3>Score & Broadcast Graphics</h3><p>Make the stream easier to follow and more valuable for sponsors and organisers.</p><ul class="featureList"><li>Scoreboard overlays</li><li>Team / player lower thirds</li><li>Sponsor placements</li></ul></div>
+          <div class="card"><div class="icon">🎙️</div><h3>Commentary & Audio</h3><p>Optional commentary, venue sound and cleaner match audio for a more professional viewing experience.</p><ul class="featureList"><li>Commentator mic</li><li>Match / venue audio</li><li>Basic mixing</li></ul></div>
+          <div class="card"><div class="icon">⚡</div><h3>Highlights & Reels</h3><p>Turn one live event into more content for WhatsApp, Instagram, YouTube Shorts and sponsors.</p><ul class="featureList"><li>Key moments</li><li>Player clips</li><li>Post-match reels</li></ul></div>
+          <div class="card"><div class="icon">🏆</div><h3>Event Promotion</h3><p>Use the website as your booking and promotion hub instead of sending prospects to scattered messages.</p><ul class="featureList"><li>Event landing pages</li><li>Gallery & portfolio</li><li>Quote / booking form</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="equipment">
+      <div class="container">
+        <div class="sectionHead">
+          <div><div class="kicker">Production Setup</div><h2>The tech behind the coverage.</h2></div>
+          <p>The site presents your equipment as a production capability, not as a shopping list. Exact specs can be updated from the Admin panel as your setup evolves.</p>
+        </div>
+        <div class="equipment">
+          <div class="card">
+            <h3>📱 Mobile Broadcast Kit</h3>
+            <p>Flexible on-location capture for grounds where speed and mobility matter.</p>
+            <div style="margin-top:12px"><span class="tag">Samsung S24 Ultra</span><span class="tag">iPhone 17 Pro</span><span class="tag">Tripods / mounts</span><span class="tag">Power backup</span><span class="tag">Mobile internet</span></div>
+          </div>
+          <div class="card">
+            <h3>🖥️ Modified Streaming PC</h3>
+            <p>Production workstation for multi-source switching, graphics, recording and streaming.</p>
+            <div style="margin-top:12px"><span class="tag">4K-capable workflow</span><span class="tag">Multi-source capture</span><span class="tag">Graphics / overlays</span><span class="tag">Local recording</span><span class="tag">Encoder software</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="packages">
+      <div class="container">
+        <div class="sectionHead">
+          <div><div class="kicker">Rate Card</div><h2>Packages you can sell.</h2></div>
+          <p>These are <strong>suggested starting rates for the website concept</strong>, not verified market prices or your final commercial rates. Change them before publishing.</p>
+        </div>
+        <div id="packageList" class="grid4"></div>
+        <div class="hint" style="margin-top:12px">Tip: keep a “Starting From” price publicly and use the quote form for travel, duration, camera count, commentary, graphics and internet requirements.</div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container">
+        <div class="sectionHead">
+          <div><div class="kicker">Portfolio</div><h2>Show the proof.</h2></div>
+          <p>Prospects need to see the quality they are buying. Add your strongest match photos, production setup shots, thumbnails, sponsor branding and crowd moments.</p>
+        </div>
+        <div id="galleryGrid" class="gallery"></div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="sectionHead">
+          <div><div class="kicker">Why This Website</div><h2>Turn viewers into bookings.</h2></div>
+          <p>A YouTube channel proves you can broadcast. The website should prove that you are organised enough to hire.</p>
+        </div>
+        <div class="why">
+          <div class="card">
+            <h3>Built for tournament organisers</h3>
+            <p>Give organisers one professional link they can send to clubs, teams, sponsors and venue partners.</p>
+            <ul class="featureList">
+              <li>One-click YouTube channel access</li>
+              <li>Upcoming event links</li>
+              <li>Portfolio and gallery</li>
+              <li>Clear package starting prices</li>
+              <li>Direct quote / booking form</li>
+              <li>Mobile-first design for WhatsApp sharing</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Simple production workflow</h3>
+            <div class="process" style="margin-top:20px">
+              <div class="step"><b>01</b><h3>Brief</h3><p>Event date, sport, venue, duration and audience.</p></div>
+              <div class="step"><b>02</b><h3>Plan</h3><p>Camera positions, audio, graphics, internet and crew.</p></div>
+              <div class="step"><b>03</b><h3>Broadcast</h3><p>Capture, switch, brand, stream and record the event.</p></div>
+              <div class="step"><b>04</b><h3>Deliver</h3><p>Archive, highlights, photos and promotional clips.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta">
+          <div>
+            <div class="kicker">Ready to Broadcast?</div>
+            <h2>Let's make the game look bigger.</h2>
+            <p>Send your event details. You can use the website to collect enquiries and then close the booking over phone or WhatsApp.</p>
+          </div>
+          <div class="actions" style="margin:0">
+            <a class="btn btnPrimary" href="#contact">Book / Enquire</a>
+            <a class="btn btnGhost" href="https://www.youtube.com/@VARANASISPORTSLIVE-h8p" target="_blank" rel="noopener">Open YouTube</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="sectionHead">
+          <div><div class="kicker">Bookings</div><h2>Tell us about your event.</h2></div>
+          <p>Queries can be sent directly to your WhatsApp or configured business email. Client phone number is mandatory.</p>
+        </div>
+        <div class="contactGrid">
+          <div class="card">
+            <h3>Direct channels</h3>
+            <p style="margin-top:8px">YouTube: <a style="color:#6ca7ff" href="https://www.youtube.com/@VARANASISPORTSLIVE-h8p" target="_blank" rel="noopener">@VARANASISPORTSLIVE-h8p</a></p>
+            <p style="margin-top:8px">Location: Varanasi, Uttar Pradesh, India</p>
+            <p style="margin-top:8px">Coverage: Local tournaments + travel assignments by requirement</p>
+            <div class="trust" style="margin-top:18px"><span>Cricket</span><span>Football</span><span>Badminton</span><span>School / College Sports</span><span>Tournaments</span></div>
+          </div>
+          <div class="card">
+            <form id="quoteForm">
+              <div class="row">
+                <div><label>Name<input id="qName" required placeholder="Your name"></label></div>
+                <div><label>Client Number <span class="editChip">Required</span><input id="qPhone" type="tel" required placeholder="+91 ..."></label></div>
+              </div>
+              <div class="row">
+                <div><label>Sport / Event<input id="qEvent" placeholder="Cricket tournament"></label></div>
+                <div><label>Event Date<input id="qDate" type="date"></label></div>
+              </div>
+              <div><label>Venue / City<input id="qVenue" placeholder="Venue, city"></label></div>
+              <div><label>What do you need?<textarea id="qNeed" placeholder="Example: 4-camera live stream, scoreboard, commentary, highlights..."></textarea></label></div>
+              <div class="actions" style="margin:14px 0 8px">
+                <button class="btn btnPrimary" type="submit">📲 Send Query on WhatsApp</button>
+                <button class="btn btnBlue" type="button" id="emailQueryBtn">✉ Send Query by Email</button>
+              </div>
+              <div class="hint">Client phone number is required. Choose WhatsApp or Email. The website does not store client queries in its database.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footerGrid">
+      <div>© <span id="year"></span> Varanasi Sports Live. All rights reserved.</div>
+      <div class="footerLinks"><a href="#home">Home</a><a href="#services">Services</a><a href="#packages">Rates</a><a href="#contact">Book</a><a href="https://www.youtube.com/@VARANASISPORTSLIVE-h8p" target="_blank" rel="noopener">YouTube</a></div>
+    </div>
+  </footer>
+
+  <button class="adminBtn" title="Admin Login" onclick="openLogin()">🔐</button>
+  <div class="modal" id="adminModal">
+    <div class="modalBox">
+      <div class="modalHead"><div><div class="kicker">Private Admin</div><h2>Manage Website Content</h2></div><div style="display:flex;gap:8px"><button class="btn btnGhost" onclick="logoutAdmin()">Logout</button><button class="btn btnGhost" onclick="closeAdmin()">Close</button></div></div>
+      <p class="hint">This privacy version saves changes on the server. No admin data is stored in browser storage. For real business use, connect the same UI to a database/CMS later.</p>
+      <div class="tabs">
+        <button class="tab active" data-panel="eventsPanel">Events</button>
+        <button class="tab" data-panel="galleryPanel">Gallery</button>
+        <button class="tab" data-panel="ratesPanel">Rates</button>
+        <button class="tab" data-panel="sitePanel">Site Settings</button>
+      </div>
+
+      <div class="panel active" id="eventsPanel">
+        <div class="adminGrid">
+          <div><label>Event title<input id="eTitle" placeholder="Example: Varanasi Cricket League Final"></label></div>
+          <div><label>Date / status<input id="eDate" placeholder="24 Aug 2026 • 4:00 PM"></label></div>
+          <div><label>Venue<input id="eVenue" placeholder="Venue, Varanasi"></label></div>
+          <div><label>Event / YouTube link<input id="eLink" placeholder="https://youtube.com/..."></label></div>
+        </div>
+        <div style="margin-top:12px"><button class="btn btnBlue" onclick="addEvent()">+ Add Event</button></div>
+        <div id="adminEvents" class="adminList"></div>
+      </div>
+
+      <div class="panel" id="galleryPanel">
+        <div class="adminGrid">
+          <div><label>Image URL<input id="gUrl" placeholder="https://.../photo.jpg"></label></div>
+          <div><label>Caption<input id="gCaption" placeholder="Final match — Varanasi"></label></div>
+        </div>
+        <div style="margin-top:12px"><button class="btn btnBlue" onclick="addGallery()">+ Add Image</button></div>
+        <div class="hint" style="margin-top:10px">Use public image URLs for this static version. For local phone photos, upload them to your hosting/CMS and paste the URL here.</div>
+        <div id="adminGallery" class="adminList"></div>
+      </div>
+
+      <div class="panel" id="ratesPanel">
+        <div class="adminGrid">
+          <div><label>Package name<input id="pName" placeholder="Pro 4-Camera"></label></div>
+          <div><label>Starting price<input id="pPrice" placeholder="₹14,999"></label></div>
+          <div style="grid-column:1/-1"><label>Includes<input id="pIncludes" placeholder="4 cameras, graphics, recording, YouTube live"></label></div>
+        </div>
+        <div style="margin-top:12px"><button class="btn btnBlue" onclick="addPackage()">+ Add Package</button></div>
+        <div id="adminPackages" class="adminList"></div>
+      </div>
+
+      <div class="panel" id="sitePanel">
+        <div class="adminGrid">
+          <div><label>Business name<input id="sName"></label></div>
+          <div><label>Enquiry email<input id="sEmail" placeholder="your@email.com"></label></div>
+          <div><label>Phone / WhatsApp<input id="sPhone" placeholder="9506117861"></label></div>
+          <div><label>WhatsApp Query Number<input id="sWhatsapp" placeholder="9506117861"></label></div>
+          <div><label>Location<input id="sLocation"></label></div>
+          <div><label>Tagline<input id="sTagline"></label></div>
+          <div style="grid-column:1/-1"><label>Main Page Image URL / File Path<input id="sMainImage" placeholder="assets/sports-live-banner.png"></label></div>
+          <div style="grid-column:1/-1"><label>Main Image Caption<input id="sMainImageCaption" placeholder="VARANASI SPORTS LIVE — Live Streaming & Multi-Camera Production"></label></div>
+        </div>
+        <div style="margin-top:12px"><button class="btn btnBlue" onclick="saveSite()">Save Site Settings</button></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:18px">
+          <button class="btn btnGhost" onclick="exportData()">Export Content JSON</button>
+          <button class="btn danger" onclick="resetData()">Reset to Starter Content</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="loginModal"><div class="loginBox"><div class="kicker">Restricted Access</div><h2>Admin Login</h2><p>Only the website administrator should use this area. After login you can edit events, images, rates and site settings.</p><form id="loginForm"><label>Admin Username<input id="adminUser" autocomplete="username" placeholder="Admin username"></label><label style="display:block;margin-top:12px">Admin Password<input id="adminPass" type="password" autocomplete="current-password" placeholder="Enter password"></label><button class="btn btnPrimary" style="width:100%;margin-top:15px" type="submit">Login to Admin Panel</button><div class="loginError" id="loginError">Incorrect admin login.</div></form><div class="adminHint">Your password is checked on the server and is never stored in this page. Sessions use an HttpOnly, SameSite cookie. Use HTTPS on the public site.</div></div></div>
+
+  <div class="toast" id="toast"></div>
+
+<script>
+const YT = "https://www.youtube.com/@VARANASISPORTSLIVE-h8p";
+let data = null;
+let csrfToken = null;
+async function loadPublicData(){
+  const r=await fetch('/api/public-data',{cache:'no-store'});
+  if(!r.ok) throw new Error('Could not load website data');
+  data=await r.json();
+  renderAll();
+}
+async function loadAdminData(){
+  const r=await fetch('/api/admin/data',{cache:'no-store',credentials:'same-origin'});
+  if(!r.ok) throw new Error('Admin session expired');
+  const payload=await r.json();
+  data=payload.data; csrfToken=payload.csrf; renderAll();
+}
+async function saveData(){
+  const r=await fetch('/api/admin/data',{method:'PUT',credentials:'same-origin',headers:{'Content-Type':'application/json','X-CSRF-Token':csrfToken},body:JSON.stringify(data)});
+  if(r.status===401){closeAdmin();openLogin();showToast('Admin session expired');return}
+  if(!r.ok){showToast('Could not save changes');return}
+  await loadAdminData(); showToast('Saved securely');
+}
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function renderEvents(){
+  const box=document.getElementById("eventList");
+  if(!data.events.length){box.innerHTML='<div class="hint">No events added yet. Use the ⚙ button to add one.</div>';return}
+  box.innerHTML=data.events.map((e,i)=>`<div class="event">
+    <div class="eventThumb">🏟️</div>
+    <div><div class="status">Event Link</div><h3>${esc(e.title)}</h3><p>${esc(e.date)} • ${esc(e.venue)}</p></div>
+    <a class="btn btnGhost" href="${esc(e.link||"#")}" target="_blank" rel="noopener">Open Event →</a>
+  </div>`).join("");
+}
+function renderPackages(){
+  const box=document.getElementById("packageList");
+  box.innerHTML=data.packages.map((p,i)=>`<div class="card package ${i===2?'popular':''}">
+    ${i===2?'<span class="popularLabel">POPULAR</span>':''}
+    <h3>${esc(p.name)}</h3><div class="price">${esc(p.price)} <small>starting</small></div>
+    <div class="editableNote">Suggested rate — edit before publishing</div>
+    <ul class="featureList"><li>${esc(p.includes)}</li><li>Final quote depends on event scope</li><li>Travel / extra hours can be added</li></ul>
+    <a class="btn btnGhost" style="margin-top:15px;width:100%" href="#contact">Request Quote</a>
+  </div>`).join("");
+}
+function renderGallery(){
+  const box=document.getElementById("galleryGrid");
+  if(!data.gallery.length){box.innerHTML='<div class="hint">Add your strongest event photos from the ⚙ panel.</div>';return}
+  box.innerHTML=data.gallery.map(g=>`<div class="galleryItem"><img src="${esc(g.url)}" alt="${esc(g.caption)}" loading="lazy"><div class="caption">${esc(g.caption)}</div></div>`).join("");
+}
+function renderAdmin(){
+  document.getElementById("adminEvents").innerHTML=data.events.map((e,i)=>`<div class="adminItem"><div><b>${esc(e.title)}</b><br><small>${esc(e.date)} • ${esc(e.venue)}</small></div><div class="itemActions"><button class="editBtn" onclick="editEvent(${i})">Edit</button><button class="btn danger" onclick="removeEvent(${i})">Delete</button></div></div>`).join("");
+  document.getElementById("adminGallery").innerHTML=data.gallery.map((g,i)=>`<div class="adminItem"><div><b>${esc(g.caption)}</b><br><small>${esc(g.url)}</small></div><div class="itemActions"><button class="editBtn" onclick="editGallery(${i})">Edit</button><button class="btn danger" onclick="removeGallery(${i})">Delete</button></div></div>`).join("");
+  document.getElementById("adminPackages").innerHTML=data.packages.map((p,i)=>`<div class="adminItem"><div><b>${esc(p.name)} — ${esc(p.price)}</b><br><small>${esc(p.includes)}</small></div><div class="itemActions"><button class="editBtn" onclick="editPackage(${i})">Edit</button><button class="btn danger" onclick="removePackage(${i})">Delete</button></div></div>`).join("");
+  document.getElementById("sName").value=data.site.name||"";document.getElementById("sEmail").value=data.site.email||"";document.getElementById("sPhone").value=data.site.phone||"";document.getElementById("sWhatsapp").value=data.site.whatsapp||data.site.phone||"9506117861";document.getElementById("sLocation").value=data.site.location||"";document.getElementById("sTagline").value=data.site.tagline||"";document.getElementById("sMainImage").value=data.site.mainImage||"assets/sports-live-banner.png";document.getElementById("sMainImageCaption").value=data.site.mainImageCaption||"";
+}
+function renderAll(){if(!data)return;renderEvents();renderPackages();renderGallery();renderMainImage();if(document.getElementById('adminModal').classList.contains('open'))renderAdmin();document.getElementById("year").textContent=new Date().getFullYear()}
+let editingEventIndex=-1,editingGalleryIndex=-1,editingPackageIndex=-1;
+function addEvent(){const e={title:eTitle.value.trim(),date:eDate.value.trim(),venue:eVenue.value.trim(),link:eLink.value.trim()};if(!e.title||!e.link)return showToast("Add a title and link");if(editingEventIndex>=0){data.events[editingEventIndex]=e;editingEventIndex=-1}else data.events.push(e);eTitle.value=eDate.value=eVenue.value=eLink.value="";saveData()}
+function addGallery(){const g={url:gUrl.value.trim(),caption:gCaption.value.trim()||"Event highlight"};if(!g.url)return showToast("Add an image URL");if(editingGalleryIndex>=0){data.gallery[editingGalleryIndex]=g;editingGalleryIndex=-1}else data.gallery.push(g);gUrl.value=gCaption.value="";saveData()}
+function addPackage(){const p={name:pName.value.trim(),price:pPrice.value.trim(),includes:pIncludes.value.trim()};if(!p.name||!p.price)return showToast("Add package name and price");if(editingPackageIndex>=0){data.packages[editingPackageIndex]=p;editingPackageIndex=-1}else data.packages.push(p);pName.value=pPrice.value=pIncludes.value="";saveData()}
+function removeEvent(i){data.events.splice(i,1);saveData()};function removeGallery(i){data.gallery.splice(i,1);saveData()};function removePackage(i){data.packages.splice(i,1);saveData()}
+function renderMainImage(){const box=document.getElementById("mainImageWrap");const src=data.site.mainImage||"assets/sports-live-banner.png";const caption=data.site.mainImageCaption||"VARANASI SPORTS LIVE";box.innerHTML=`<img src="${esc(src)}" alt="${esc(caption)}"><div class="mainContentCaption"><div><strong>${esc(caption)}</strong><br><span>Featured website content</span></div><span class="editChip">⚙ Change from Admin Login</span></div>`;}
+function editEvent(i){const e=data.events[i];editingEventIndex=i;eTitle.value=e.title||"";eDate.value=e.date||"";eVenue.value=e.venue||"";eLink.value=e.link||"";showToast("Loaded event for editing");}
+function editGallery(i){const g=data.gallery[i];editingGalleryIndex=i;gUrl.value=g.url||"";gCaption.value=g.caption||"";showToast("Loaded image for editing");}
+function editPackage(i){const x=data.packages[i];editingPackageIndex=i;pName.value=x.name||"";pPrice.value=x.price||"";pIncludes.value=x.includes||"";showToast("Loaded package for editing");}
+function saveSite(){data.site={name:sName.value.trim()||"Varanasi Sports Live",email:sEmail.value.trim(),phone:sPhone.value.trim(),whatsapp:sWhatsapp.value.replace(/\D/g,"").trim()||"9506117861",location:sLocation.value.trim(),tagline:sTagline.value.trim(),mainImage:sMainImage.value.trim()||"assets/sports-live-banner.png",mainImageCaption:sMainImageCaption.value.trim()||"VARANASI SPORTS LIVE"};saveData()}
+function resetData(){showToast('Reset is disabled in privacy mode')}
+async function exportData(){const r=await fetch('/api/admin/data',{credentials:'same-origin',cache:'no-store'});if(!r.ok){showToast('Admin session expired');return}const x=await r.json();const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(x.data,null,2)],{type:'application/json'}));a.download='varanasi-sports-live-content.json';a.click()}
+async function openAdmin(){try{await loadAdminData();document.getElementById("adminModal").classList.add("open")}catch{closeAdmin();openLogin()}}
+function closeAdmin(){document.getElementById("adminModal").classList.remove("open")}
+function toggleMenu(){document.getElementById("navlinks").classList.toggle("open")}
+function showToast(t){const x=document.getElementById("toast");x.textContent=t;x.classList.add("show");setTimeout(()=>x.classList.remove("show"),1800)}
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".panel").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.getElementById(b.dataset.panel).classList.add("active")}));
+function openLogin(){document.getElementById("loginModal").classList.add("open");setTimeout(()=>document.getElementById("adminPass").focus(),100)}
+function closeLogin(){document.getElementById("loginModal").classList.remove("open")}
+async function logoutAdmin(){await fetch('/api/logout',{method:'POST',credentials:'same-origin'});csrfToken=null;closeAdmin();showToast('Logged out')}
+const loginFormEl=document.getElementById("loginForm"), loginUserEl=document.getElementById("adminUser"), loginPassEl=document.getElementById("adminPass"), loginErrorEl=document.getElementById("loginError");
+loginFormEl.addEventListener("submit",async e=>{
+  e.preventDefault(); loginErrorEl.style.display='none';
+  if(location.protocol==='file:'){loginErrorEl.textContent='Please start the included Node.js server (not the HTML file directly) to use the private Admin Login.';loginErrorEl.style.display='block';return}
+  try{
+    const r=await fetch('/api/login',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:loginUserEl.value.trim(),password:loginPassEl.value})});
+    if(!r.ok){loginErrorEl.textContent='Incorrect Admin ID or Password.';loginErrorEl.style.display='block';return}
+    const x=await r.json(); csrfToken=x.csrf; await loadAdminData(); closeLogin(); openAdmin(); loginPassEl.value='';
+  }catch{loginErrorEl.textContent='Login server is unavailable. Start the website server and try again.';loginErrorEl.style.display='block'}
+});
+document.getElementById("loginModal").addEventListener("click",e=>{if(e.target.id==="loginModal")closeLogin()});
+function buildQuery(){return `NEW EVENT QUERY — VARANASI SPORTS LIVE\n\nClient Name: ${qName.value.trim()}\nClient Number: ${qPhone.value.trim()}\nSport/Event: ${qEvent.value.trim()||"Not specified"}\nEvent Date: ${qDate.value||"Not specified"}\nVenue/City: ${qVenue.value.trim()||"Not specified"}\nRequirements: ${qNeed.value.trim()||"Not specified"}\n\nPlease contact the client for further details.`}
+function validateClientQuery(){if(!qName.value.trim()||!qPhone.value.trim()){showToast('Client Name and Client Number are required');return false}return true}
+document.getElementById("quoteForm").addEventListener("submit",e=>{e.preventDefault();if(!validateClientQuery())return;const wa=(data.site.whatsapp||"9506117861").replace(/\D/g,"");if(!wa){showToast('Admin WhatsApp number is not configured');return}const text=buildQuery();window.open(`https://wa.me/${wa}?text=${encodeURIComponent(text)}`,"_blank")});
+document.getElementById("emailQueryBtn").addEventListener("click",()=>{if(!validateClientQuery())return;const email=(data.site.email||"").trim();if(!email){showToast('Admin email is not configured. Add it in Admin → Site Settings.');return}const subject='New Event Query — Varanasi Sports Live';window.location.href=`mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(buildQuery())}`});
+document.getElementById("adminModal").addEventListener("click",e=>{if(e.target.id==="adminModal")closeAdmin()});
+loadPublicData().catch(()=>{showToast('Website data could not be loaded')});
+</script>
+</body>
+</html>

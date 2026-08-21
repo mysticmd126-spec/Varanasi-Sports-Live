@@ -1,0 +1,12 @@
+@echo off
+cd /d "%~dp0"
+where node >nul 2>nul
+if errorlevel 1 (
+  echo Node.js 20+ is required. Install Node.js, then run this file again.
+  pause
+  exit /b 1
+)
+echo Starting Varanasi Sports Live...
+echo Open http://localhost:3000 in your browser.
+node server.js
+pause

@@ -1,0 +1,9 @@
+{
+  "name": "varanasi-sports-live-secure-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Privacy-first Varanasi Sports Live business website with server-side admin authentication.",
+  "scripts": {"start": "node --env-file=.env server.js"},
+  "engines": {"node": ">=20"},
+  "dependencies": {}
+}
