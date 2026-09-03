@@ -1,9 +1,9 @@
 {
-  "name": "varanasi-sports-live-secure-site",
-  "version": "1.0.0",
+  "name": "varanasi-sports-live",
+  "version": "2.0.0",
   "private": true,
-  "description": "Privacy-first Varanasi Sports Live business website with server-side admin authentication.",
-  "scripts": {"start": "node --env-file=.env server.js"},
+  "description": "Varanasi Sports Live website with PostgreSQL-backed admin CMS",
+  "scripts": {"start": "node server.js"},
   "engines": {"node": ">=20"},
-  "dependencies": {}
+  "dependencies": {"pg": "^8.16.3"}
 }
