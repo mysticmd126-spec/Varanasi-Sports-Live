@@ -41,7 +41,7 @@ const DEFAULT_DATA={
   events:[{title:'VARANASI SPORTS LIVE — YouTube Channel',date:'Live & scheduled streams',venue:'Online',link:'https://www.youtube.com/@VARANASISPORTSLIVE-h8p',image:'/assets/logo.png'}],
   gallery:[{url:'/assets/logo.png',caption:'Varanasi Sports Live — Brand Logo'},{url:'/assets/sports-live-banner.png',caption:'Live Streaming & Multi-Camera Production'}],
   packages:[{name:'Mobile Starter',price:'₹3,999+',includes:'1 mobile setup, basic live stream, up to 4 hours'},{name:'Dual Angle',price:'₹7,999+',includes:'2 capture angles, operator, basic graphics, recording'},{name:'Pro 4-Camera',price:'₹14,999+',includes:'Up to 4 angles, streaming PC, graphics, recording'},{name:'Tournament',price:'₹24,999+',includes:'4-camera production, full-day coverage, custom requirements'}],
-  employees:[]
+  employees:[],adminCredentials:{username:'admin',passwordHash:''}
 };
 
 function clone(x){return JSON.parse(JSON.stringify(x));}
@@ -59,12 +59,12 @@ function saveData(data){
   fs.renameSync(tmp,DATA_FILE);
 }
 function parseCookies(req){const out={};(req.headers.cookie||'').split(';').forEach(x=>{const i=x.indexOf('=');if(i>0)out[x.slice(0,i).trim()]=decodeURIComponent(x.slice(i+1).trim())});return out;}
-function timingSafeHex(a,b){const A=Buffer.from(a,'hex'),B=Buffer.from(b,'hex');return A.length===B.length&&crypto.timingSafeEqual(A,B);}
+function timingSafeHex(a,b){const A=Buffer.from(a,'hex'),B=Buffer.from(b,'hex');return A.length===B.length&&crypto.timingSafeEqual(A,B)}
 function verifyPassword(password,stored){try{const [scheme,saltHex,hashHex]=String(stored||'').split('$');if(scheme!=='scrypt'||!saltHex||!hashHex)return false;const derived=crypto.scryptSync(password,Buffer.from(saltHex,'hex'),Buffer.from(hashHex,'hex').length,{N:16384,r:8,p:1,maxmem:32*1024*1024});return timingSafeHex(derived.toString('hex'),hashHex)}catch{return false}}
 function makeHash(password){const salt=crypto.randomBytes(16);const hash=crypto.scryptSync(password,salt,64,{N:16384,r:8,p:1,maxmem:32*1024*1024});return `scrypt$${salt.toString('hex')}$${hash.toString('hex')}`}
-if(process.argv[2]==='--hash'){const p=process.argv.slice(3).join(' ');if(!p){console.error('Usage: node server.js --hash "strong-password"');process.exit(1)}console.log(makeHash(p));process.exit(0)}
-const PASSWORD_HASH=process.env.ADMIN_PASSWORD_HASH;
-if(!PASSWORD_HASH){console.error('Missing ADMIN_PASSWORD_HASH.');process.exit(1)}
+function currentPasswordHash(){const d=loadData();return String(d.adminCredentials?.passwordHash||process.env.ADMIN_PASSWORD_HASH||'')}
+function currentAdminUsername(){const d=loadData();return String(d.adminCredentials?.username||'admin')}
+function publicData(){const d=loadData();delete d.adminCredentials;return d}
 function json(res,status,obj,extra={}){res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store',...extra});res.end(JSON.stringify(obj));}
 function securityHeaders(){return {'X-Content-Type-Options':'nosniff','X-Frame-Options':'DENY','Referrer-Policy':'no-referrer','Permissions-Policy':'camera=(), microphone=(), geolocation=()','Content-Security-Policy':"default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"};}
 function sendFile(res,file){const ext=path.extname(file).toLowerCase();const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.svg':'image/svg+xml'};res.writeHead(200,{...securityHeaders(),'Content-Type':types[ext]||'application/octet-stream','Cache-Control':ext==='.html'?'no-store':'public, max-age=86400'});fs.createReadStream(file).pipe(res)}
@@ -75,11 +75,32 @@ function csrf(req,res,s){const token=req.headers['x-csrf-token'];if(!token||toke
 setInterval(()=>{for(const [id,s] of sessions)if(s.expires<Date.now())sessions.delete(id)},15*60*1000).unref();
 const server=http.createServer(async(req,res)=>{try{
   const u=new URL(req.url,`http://${req.headers.host||'localhost'}`);const p=u.pathname;
-  if(p==='/api/login'&&req.method==='POST'){const body=await readBody(req);if(typeof body.username!=='string'||body.username!=='admin'||typeof body.password!=='string'||!verifyPassword(body.password,PASSWORD_HASH))return json(res,401,{error:'Invalid credentials'},securityHeaders());const sid=crypto.randomBytes(32).toString('hex'),csrf=crypto.randomBytes(24).toString('hex');sessions.set(sid,{csrf,expires:Date.now()+SESSION_TTL});const forwardedProto=String(req.headers['x-forwarded-proto']||'').split(',')[0].trim();const isHttps=!!req.socket.encrypted||forwardedProto==='https';const cookie=`vsl_admin=${sid}; Path=/; HttpOnly; SameSite=Strict; Max-Age=${SESSION_TTL/1000}${isHttps?'; Secure':''}`;return json(res,200,{ok:true,csrf},{...securityHeaders(),'Set-Cookie':cookie})}
+  if(p==='/api/login'&&req.method==='POST'){
+    const body=await readBody(req);
+    const username=String(body.username||'').trim();
+    const password=String(body.password||'');
+    const stored=currentPasswordHash();
+    if(!username||username!==currentAdminUsername()||!stored||!verifyPassword(password,stored)) return json(res,401,{error:'Invalid credentials'},securityHeaders());
+    const out=createSession(req,res);
+    return json(res,200,{ok:true,csrf:out.csrf},{...securityHeaders(),'Set-Cookie':out.cookie});
+  }
   if(p==='/api/logout'&&req.method==='POST'){const c=parseCookies(req);if(c.vsl_admin)sessions.delete(c.vsl_admin);return json(res,200,{ok:true},{...securityHeaders(),'Set-Cookie':'vsl_admin=; Path=/; HttpOnly; SameSite=Strict; Max-Age=0'})}
-  if(p==='/api/public-data'&&req.method==='GET')return json(res,200,loadData(),securityHeaders());
+  if(p==='/api/public-data'&&req.method==='GET')return json(res,200,publicData(),securityHeaders());
   if(p==='/api/admin/data'&&req.method==='GET'){const s=requireAdmin(req,res);if(!s)return;return json(res,200,{data:loadData(),csrf:s.csrf},securityHeaders())}
   if(p==='/api/admin/data'&&req.method==='PUT'){const s=requireAdmin(req,res);if(!s)return;if(!csrf(req,res,s))return;const body=await readBody(req);if(!body||!body.site||!Array.isArray(body.events)||!Array.isArray(body.gallery)||!Array.isArray(body.packages)||!Array.isArray(body.employees))return json(res,400,{error:'Invalid data'},securityHeaders());saveData(body);return json(res,200,{ok:true,data:body},securityHeaders())}
+  if(p==='/api/admin/credentials'&&req.method==='PUT'){
+    const s=requireAdmin(req,res);if(!s)return;if(!csrf(req,res,s))return;
+    const body=await readBody(req);
+    const username=String(body.username||'').trim();
+    const currentPassword=String(body.currentPassword||'');
+    const newPassword=String(body.newPassword||'');
+    if(!/^[A-Za-z0-9._-]{3,40}$/.test(username)) return json(res,400,{error:'Admin ID must be 3-40 characters and use letters, numbers, dot, underscore or hyphen.'},securityHeaders());
+    if(newPassword.length<8) return json(res,400,{error:'New password must be at least 8 characters.'},securityHeaders());
+    const stored=currentPasswordHash();
+    if(stored && !verifyPassword(currentPassword,stored)) return json(res,403,{error:'Current password is incorrect.'},securityHeaders());
+    const d=loadData();d.adminCredentials={username,passwordHash:makeHash(newPassword)};saveData(d);
+    return json(res,200,{ok:true,message:'Admin ID and password changed successfully.'},securityHeaders());
+  }
   if(p==='/api/admin/session'&&req.method==='GET'){const s=session(req);return json(res,200,{authenticated:!!s,csrf:s?.csrf||null},securityHeaders())}
   let file=path.join(PUBLIC,p==='/'?'index.html':p.slice(1));
   // Backward-compatible fallback: if old HTML asks for /assets/file.png but the file is in root, serve it.
@@ -87,4 +108,4 @@ const server=http.createServer(async(req,res)=>{try{
   if(!file.startsWith(PUBLIC)||!fs.existsSync(file)||fs.statSync(file).isDirectory())file=path.join(PUBLIC,'index.html');
   return sendFile(res,file);
 }catch(e){console.error(e);json(res,500,{error:'Server error'},securityHeaders())}});
-server.listen(PORT,()=>console.log(`Varanasi Sports Live site: http://localhost:${PORT}`));
+server.listen(PORT,'0.0.0.0',()=>console.log(`Varanasi Sports Live site: http://0.0.0.0:${PORT}`));
