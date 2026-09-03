@@ -72,6 +72,15 @@ function readBody(req){return new Promise((resolve,reject)=>{let b='';req.on('da
 function session(req){const sid=parseCookies(req).vsl_admin;if(!sid)return null;const s=sessions.get(sid);if(!s||s.expires<Date.now()){sessions.delete(sid);return null}s.expires=Date.now()+SESSION_TTL;return {sid,...s}}
 function requireAdmin(req,res){const s=session(req);if(!s){json(res,401,{error:'Unauthorized'},securityHeaders());return null}return s}
 function csrf(req,res,s){const token=req.headers['x-csrf-token'];if(!token||token!==s.csrf){json(res,403,{error:'CSRF validation failed'},securityHeaders());return false}return true}
+function createSession(req,res){
+  const sid=crypto.randomBytes(32).toString('hex');
+  const csrfToken=crypto.randomBytes(32).toString('hex');
+  const expires=Date.now()+SESSION_TTL;
+  sessions.set(sid,{csrf:csrfToken,expires});
+  const secure=req.headers['x-forwarded-proto']==='https'?' Secure;':'';
+  const cookie=`vsl_admin=${encodeURIComponent(sid)}; Path=/; HttpOnly; SameSite=Strict;${secure} Max-Age=${Math.floor(SESSION_TTL/1000)}`;
+  return {csrf:csrfToken,cookie};
+}
 setInterval(()=>{for(const [id,s] of sessions)if(s.expires<Date.now())sessions.delete(id)},15*60*1000).unref();
 const server=http.createServer(async(req,res)=>{try{
   const u=new URL(req.url,`http://${req.headers.host||'localhost'}`);const p=u.pathname;
