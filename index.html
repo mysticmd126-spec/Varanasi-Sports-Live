@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Varanasi Sports Live | Sports Broadcasting & Live Streaming</title>
-  <meta name="description" content="Varanasi Sports Live — multi-camera sports broadcasting, live streaming, event coverage, highlights and promotional media." />
-  <meta name="theme-color" content="#090b10" />
-  <meta property="og:title" content="Varanasi Sports Live" />
-  <meta property="og:description" content="Broadcast the game. Reach the audience. Build your event brand." />
-  <meta property="og:type" content="website" />
-  <link rel="icon" href="assets/logo.png" />
-  <style>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Varanasi Sports Live</title><meta name="description" content="Varanasi Sports Live — sports broadcasting and live streaming."><style>
     :root{
       --bg:#07090d;
       --panel:#10141b;
@@ -85,21 +73,6 @@
     .featureList{padding:0;margin:16px 0 0;list-style:none;display:grid;gap:9px}
     .featureList li{font-size:13px;color:#c9d1dc;display:flex;gap:8px}.featureList li:before{content:"✓";color:var(--green);font-weight:900}
 
-    .siteTitle{text-align:center;font-size:clamp(28px,5vw,58px);font-weight:1000;letter-spacing:.08em;line-height:1;margin:4px 0 24px;background:linear-gradient(90deg,#fff,#7db7ff,#ff465f,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .navAdminBtn{border:1px solid #3b4859;background:#111722;color:#fff;padding:9px 12px;border-radius:10px;font-size:12px;font-weight:900;cursor:pointer}
-    .navAdminBtn:hover{border-color:#6c8fbe;background:#172131}
-    .mainContentImage{border:1px solid #354153;border-radius:25px;overflow:hidden;background:#0d121a;box-shadow:var(--shadow)}
-    .mainContentImage img{width:100%;height:auto;display:block;max-height:650px;object-fit:cover}
-    .mainContentCaption{padding:16px 18px;display:flex;justify-content:space-between;gap:20px;align-items:center}
-    .mainContentCaption span{font-size:12px;color:var(--muted)}
-    .editChip{display:inline-flex;align-items:center;gap:5px;border:1px solid #344153;background:#111821;border-radius:999px;padding:5px 8px;font-size:10px;color:#b9c5d4}
-    .loginBox{width:min(430px,100%);margin:10vh auto;background:#0e131b;border:1px solid #354052;border-radius:22px;padding:24px;box-shadow:var(--shadow)}
-    .loginBox h2{margin:0 0 6px}.loginBox p{color:var(--muted);font-size:13px}
-    .loginError{display:none;color:#ff7c91;background:#29131a;border:1px solid #54202d;padding:9px 10px;border-radius:10px;font-size:12px;margin-top:8px}
-    .editBtn{background:#111923;border:1px solid #344153;color:#d7e0ec;border-radius:9px;padding:6px 9px;font-size:11px;cursor:pointer}
-    .editBtn:hover{border-color:#568cff}
-    .adminItem .itemActions{display:flex;gap:6px;flex-shrink:0}
-    .adminHint{font-size:11px;color:#7f8a99;margin-top:10px}
     .brandShowcase{display:grid;grid-template-columns:.58fr 1.42fr;gap:18px;align-items:stretch}
     .showcaseLogo,.showcaseBanner{padding:12px;overflow:hidden}
     .showcaseLogo{display:flex;flex-direction:column;justify-content:center;align-items:center;background:radial-gradient(circle at 50% 40%,#17233a,#0b1017 72%)}
@@ -165,410 +138,62 @@
       .sectionHead{display:block}.sectionHead p{margin-top:10px}
       h1{font-size:48px}
     }
-  </style>
-</head>
-<body>
-  <header class="topbar">
-    <div class="container nav">
-      <a class="brand" href="#home">
-        <img src="assets/logo.png" alt="Varanasi Sports Live logo">
-        <span>VARANASI SPORTS LIVE</span>
-      </a>
-      <button class="menu" onclick="toggleMenu()">Menu</button>
-      <nav class="navlinks" id="navlinks">
-        <a href="#events">Events</a>
-        <a href="#services">Services</a>
-        <a href="#packages">Rates</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#about">Why Us</a>
-        <a href="#contact">Book Now</a>
-        <button class="navAdminBtn" onclick="openLogin()">🔐 Admin Login</button>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero" id="home">
-      <div class="container heroGrid">
-        <div>
-          <div class="eyebrow"><span class="dot"></span> SPORTS BROADCASTING • VARANASI</div>
-          <div class="siteTitle">VARANASI SPORTS LIVE</div>
-          <h1>Make your match look <span class="gradient">broadcast‑grade.</span></h1>
-          <p class="lead">Live sports coverage using mobile production, S24 Ultra, iPhone 17 Pro and a modified 4K streaming PC — with multi-angle coverage, graphics, recording and event promotion built around your tournament.</p>
-          <div class="actions">
-            <a class="btn btnPrimary" href="https://www.youtube.com/@VARANASISPORTSLIVE-h8p" target="_blank" rel="noopener">▶ Watch YouTube Channel</a>
-            <a class="btn btnBlue" href="#contact">Request a Quote</a>
-            <a class="btn btnGhost" href="#events">Upcoming Events</a>
-          </div>
-          <div class="trust">
-            <span>📡 Live Streaming</span><span>🎥 Up to 4 Camera Angles</span><span>🖥️ 4K-Capable Workflow</span><span>🏏 Sports Focused</span>
-          </div>
-        </div>
-        <div class="heroCard">
-          <div class="screen">
-            <span class="liveBadge">● LIVE READY</span>
-            <img src="assets/logo.png" alt="">
-            <div class="screenText"><div><strong>VARANASI SPORTS LIVE</strong><br><small>Multi-angle sports coverage</small></div><div><small>YOUTUBE</small></div></div>
-          </div>
-          <div class="stats">
-            <div class="stat"><b>11.2K</b><span>YouTube subscribers*</span></div>
-            <div class="stat"><b>1,300+</b><span>Channel videos*</span></div>
-            <div class="stat"><b>1.26M+</b><span>Channel views*</span></div>
-          </div>
-          <div class="hint" style="margin-top:10px">*Figures shown from the channel information supplied for this website concept; update them whenever needed.</div>
-        </div>
-      </div>
-    </section>
-
-
-    <section id="showcase">
-      <div class="container">
-        <div class="sectionHead">
-          <div><div class="kicker">Brand & Production Showcase</div><h2>One brand. Two powerful visuals.</h2></div>
-          <p>Your circular Sports + Corporate Events identity works as the brand mark, while the wide production graphic communicates your complete live-streaming service at a glance.</p>
-        </div>
-        <div class="brandShowcase">
-          <div class="showcaseLogo card">
-            <img src="assets/sports-corporate-logo.png" alt="Varanasi Sports Live Corporate Events logo">
-            <div class="showcaseCaption"><strong>Official Brand Mark</strong><span>Sports • Live • Corporate Events</span></div>
-          </div>
-          <div class="showcaseBanner card">
-            <img src="assets/sports-live-banner.png" alt="Varanasi Sports Live sports broadcasting and live streaming banner">
-            <div class="showcaseCaption"><strong>Broadcasting & Promotion Banner</strong><span>Live streaming • Live scoring • Multiple camera angles • All sports & auction</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="mainContent">
-      <div class="container">
-        <div class="sectionHead">
-          <div><div class="kicker">Featured</div><h2>Main Event Visual</h2></div>
-          <p>Use this space for your strongest promotional banner, tournament poster, match artwork or production photograph.</p>
-        </div>
-        <div id="mainImageWrap" class="mainContentImage"></div>
-      </div>
-    </section>
-
-    <section id="events">
-      <div class="container">
-        <div class="sectionHead">
-          <div><div class="kicker">Live & Upcoming</div><h2>Your event links, in one place.</h2></div>
-          <p>Add your YouTube live links, scheduled streams, match pages or registration links from the Admin panel. This section is designed to become the fastest route from your website to the actual event.</p>
-        </div>
-        <div id="eventList" class="card" style="display:grid;gap:12px"></div>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="container">
-        <div class="sectionHead">
-          <div><div class="kicker">What We Deliver</div><h2>Everything around the live game.</h2></div>
-          <p>Modern sports-broadcasting sites sell the outcome, not just the cameras: coverage, presentation, audience reach, sponsor visibility and post-event content.</p>
-        </div>
-        <div class="grid3">
-          <div class="card"><div class="icon">📡</div><h3>Live Streaming</h3><p>Stream matches and tournaments to your YouTube audience with a clean branded presentation.</p><ul class="featureList"><li>YouTube live integration</li><li>Stable encoder workflow</li><li>Live / upcoming event links</li></ul></div>
-          <div class="card"><div class="icon">🎥</div><h3>Multi-Camera Coverage</h3><p>Use different angles to follow the action instead of forcing viewers to watch one static frame.</p><ul class="featureList"><li>Main / wide angle</li><li>Close action angle</li><li>Mobile / sideline angle</li></ul></div>
-          <div class="card"><div class="icon">📊</div><h3>Score & Broadcast Graphics</h3><p>Make the stream easier to follow and more valuable for sponsors and organisers.</p><ul class="featureList"><li>Scoreboard overlays</li><li>Team / player lower thirds</li><li>Sponsor placements</li></ul></div>
-          <div class="card"><div class="icon">🎙️</div><h3>Commentary & Audio</h3><p>Optional commentary, venue sound and cleaner match audio for a more professional viewing experience.</p><ul class="featureList"><li>Commentator mic</li><li>Match / venue audio</li><li>Basic mixing</li></ul></div>
-          <div class="card"><div class="icon">⚡</div><h3>Highlights & Reels</h3><p>Turn one live event into more content for WhatsApp, Instagram, YouTube Shorts and sponsors.</p><ul class="featureList"><li>Key moments</li><li>Player clips</li><li>Post-match reels</li></ul></div>
-          <div class="card"><div class="icon">🏆</div><h3>Event Promotion</h3><p>Use the website as your booking and promotion hub instead of sending prospects to scattered messages.</p><ul class="featureList"><li>Event landing pages</li><li>Gallery & portfolio</li><li>Quote / booking form</li></ul></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="equipment">
-      <div class="container">
-        <div class="sectionHead">
-          <div><div class="kicker">Production Setup</div><h2>The tech behind the coverage.</h2></div>
-          <p>The site presents your equipment as a production capability, not as a shopping list. Exact specs can be updated from the Admin panel as your setup evolves.</p>
-        </div>
-        <div class="equipment">
-          <div class="card">
-            <h3>📱 Mobile Broadcast Kit</h3>
-            <p>Flexible on-location capture for grounds where speed and mobility matter.</p>
-            <div style="margin-top:12px"><span class="tag">Samsung S24 Ultra</span><span class="tag">iPhone 17 Pro</span><span class="tag">Tripods / mounts</span><span class="tag">Power backup</span><span class="tag">Mobile internet</span></div>
-          </div>
-          <div class="card">
-            <h3>🖥️ Modified Streaming PC</h3>
-            <p>Production workstation for multi-source switching, graphics, recording and streaming.</p>
-            <div style="margin-top:12px"><span class="tag">4K-capable workflow</span><span class="tag">Multi-source capture</span><span class="tag">Graphics / overlays</span><span class="tag">Local recording</span><span class="tag">Encoder software</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="packages">
-      <div class="container">
-        <div class="sectionHead">
-          <div><div class="kicker">Rate Card</div><h2>Packages you can sell.</h2></div>
-          <p>These are <strong>suggested starting rates for the website concept</strong>, not verified market prices or your final commercial rates. Change them before publishing.</p>
-        </div>
-        <div id="packageList" class="grid4"></div>
-        <div class="hint" style="margin-top:12px">Tip: keep a “Starting From” price publicly and use the quote form for travel, duration, camera count, commentary, graphics and internet requirements.</div>
-      </div>
-    </section>
-
-    <section id="gallery">
-      <div class="container">
-        <div class="sectionHead">
-          <div><div class="kicker">Portfolio</div><h2>Show the proof.</h2></div>
-          <p>Prospects need to see the quality they are buying. Add your strongest match photos, production setup shots, thumbnails, sponsor branding and crowd moments.</p>
-        </div>
-        <div id="galleryGrid" class="gallery"></div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container">
-        <div class="sectionHead">
-          <div><div class="kicker">Why This Website</div><h2>Turn viewers into bookings.</h2></div>
-          <p>A YouTube channel proves you can broadcast. The website should prove that you are organised enough to hire.</p>
-        </div>
-        <div class="why">
-          <div class="card">
-            <h3>Built for tournament organisers</h3>
-            <p>Give organisers one professional link they can send to clubs, teams, sponsors and venue partners.</p>
-            <ul class="featureList">
-              <li>One-click YouTube channel access</li>
-              <li>Upcoming event links</li>
-              <li>Portfolio and gallery</li>
-              <li>Clear package starting prices</li>
-              <li>Direct quote / booking form</li>
-              <li>Mobile-first design for WhatsApp sharing</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Simple production workflow</h3>
-            <div class="process" style="margin-top:20px">
-              <div class="step"><b>01</b><h3>Brief</h3><p>Event date, sport, venue, duration and audience.</p></div>
-              <div class="step"><b>02</b><h3>Plan</h3><p>Camera positions, audio, graphics, internet and crew.</p></div>
-              <div class="step"><b>03</b><h3>Broadcast</h3><p>Capture, switch, brand, stream and record the event.</p></div>
-              <div class="step"><b>04</b><h3>Deliver</h3><p>Archive, highlights, photos and promotional clips.</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="cta">
-          <div>
-            <div class="kicker">Ready to Broadcast?</div>
-            <h2>Let's make the game look bigger.</h2>
-            <p>Send your event details. You can use the website to collect enquiries and then close the booking over phone or WhatsApp.</p>
-          </div>
-          <div class="actions" style="margin:0">
-            <a class="btn btnPrimary" href="#contact">Book / Enquire</a>
-            <a class="btn btnGhost" href="https://www.youtube.com/@VARANASISPORTSLIVE-h8p" target="_blank" rel="noopener">Open YouTube</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <div class="sectionHead">
-          <div><div class="kicker">Bookings</div><h2>Tell us about your event.</h2></div>
-          <p>Queries can be sent directly to your WhatsApp or configured business email. Client phone number is mandatory.</p>
-        </div>
-        <div class="contactGrid">
-          <div class="card">
-            <h3>Direct channels</h3>
-            <p style="margin-top:8px">YouTube: <a style="color:#6ca7ff" href="https://www.youtube.com/@VARANASISPORTSLIVE-h8p" target="_blank" rel="noopener">@VARANASISPORTSLIVE-h8p</a></p>
-            <p style="margin-top:8px">Location: Varanasi, Uttar Pradesh, India</p>
-            <p style="margin-top:8px">Coverage: Local tournaments + travel assignments by requirement</p>
-            <div class="trust" style="margin-top:18px"><span>Cricket</span><span>Football</span><span>Badminton</span><span>School / College Sports</span><span>Tournaments</span></div>
-          </div>
-          <div class="card">
-            <form id="quoteForm">
-              <div class="row">
-                <div><label>Name<input id="qName" required placeholder="Your name"></label></div>
-                <div><label>Client Number <span class="editChip">Required</span><input id="qPhone" type="tel" required placeholder="+91 ..."></label></div>
-              </div>
-              <div class="row">
-                <div><label>Sport / Event<input id="qEvent" placeholder="Cricket tournament"></label></div>
-                <div><label>Event Date<input id="qDate" type="date"></label></div>
-              </div>
-              <div><label>Venue / City<input id="qVenue" placeholder="Venue, city"></label></div>
-              <div><label>What do you need?<textarea id="qNeed" placeholder="Example: 4-camera live stream, scoreboard, commentary, highlights..."></textarea></label></div>
-              <div class="actions" style="margin:14px 0 8px">
-                <button class="btn btnPrimary" type="submit">📲 Send Query on WhatsApp</button>
-                <button class="btn btnBlue" type="button" id="emailQueryBtn">✉ Send Query by Email</button>
-              </div>
-              <div class="hint">Client phone number is required. Choose WhatsApp or Email. The website does not store client queries in its database.</div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footerGrid">
-      <div>© <span id="year"></span> Varanasi Sports Live. All rights reserved.</div>
-      <div class="footerLinks"><a href="#home">Home</a><a href="#services">Services</a><a href="#packages">Rates</a><a href="#contact">Book</a><a href="https://www.youtube.com/@VARANASISPORTSLIVE-h8p" target="_blank" rel="noopener">YouTube</a></div>
-    </div>
-  </footer>
-
-  <button class="adminBtn" title="Admin Login" onclick="openLogin()">🔐</button>
-  <div class="modal" id="adminModal">
-    <div class="modalBox">
-      <div class="modalHead"><div><div class="kicker">Private Admin</div><h2>Manage Website Content</h2></div><div style="display:flex;gap:8px"><button class="btn btnGhost" onclick="logoutAdmin()">Logout</button><button class="btn btnGhost" onclick="closeAdmin()">Close</button></div></div>
-      <p class="hint">This privacy version saves changes on the server. No admin data is stored in browser storage. For real business use, connect the same UI to a database/CMS later.</p>
-      <div class="tabs">
-        <button class="tab active" data-panel="eventsPanel">Events</button>
-        <button class="tab" data-panel="galleryPanel">Gallery</button>
-        <button class="tab" data-panel="ratesPanel">Rates</button>
-        <button class="tab" data-panel="sitePanel">Site Settings</button>
-      </div>
-
-      <div class="panel active" id="eventsPanel">
-        <div class="adminGrid">
-          <div><label>Event title<input id="eTitle" placeholder="Example: Varanasi Cricket League Final"></label></div>
-          <div><label>Date / status<input id="eDate" placeholder="24 Aug 2026 • 4:00 PM"></label></div>
-          <div><label>Venue<input id="eVenue" placeholder="Venue, Varanasi"></label></div>
-          <div><label>Event / YouTube link<input id="eLink" placeholder="https://youtube.com/..."></label></div>
-        </div>
-        <div style="margin-top:12px"><button class="btn btnBlue" onclick="addEvent()">+ Add Event</button></div>
-        <div id="adminEvents" class="adminList"></div>
-      </div>
-
-      <div class="panel" id="galleryPanel">
-        <div class="adminGrid">
-          <div><label>Image URL<input id="gUrl" placeholder="https://.../photo.jpg"></label></div>
-          <div><label>Caption<input id="gCaption" placeholder="Final match — Varanasi"></label></div>
-        </div>
-        <div style="margin-top:12px"><button class="btn btnBlue" onclick="addGallery()">+ Add Image</button></div>
-        <div class="hint" style="margin-top:10px">Use public image URLs for this static version. For local phone photos, upload them to your hosting/CMS and paste the URL here.</div>
-        <div id="adminGallery" class="adminList"></div>
-      </div>
-
-      <div class="panel" id="ratesPanel">
-        <div class="adminGrid">
-          <div><label>Package name<input id="pName" placeholder="Pro 4-Camera"></label></div>
-          <div><label>Starting price<input id="pPrice" placeholder="₹14,999"></label></div>
-          <div style="grid-column:1/-1"><label>Includes<input id="pIncludes" placeholder="4 cameras, graphics, recording, YouTube live"></label></div>
-        </div>
-        <div style="margin-top:12px"><button class="btn btnBlue" onclick="addPackage()">+ Add Package</button></div>
-        <div id="adminPackages" class="adminList"></div>
-      </div>
-
-      <div class="panel" id="sitePanel">
-        <div class="adminGrid">
-          <div><label>Business name<input id="sName"></label></div>
-          <div><label>Enquiry email<input id="sEmail" placeholder="your@email.com"></label></div>
-          <div><label>Phone / WhatsApp<input id="sPhone" placeholder="9506117861"></label></div>
-          <div><label>WhatsApp Query Number<input id="sWhatsapp" placeholder="9506117861"></label></div>
-          <div><label>Location<input id="sLocation"></label></div>
-          <div><label>Tagline<input id="sTagline"></label></div>
-          <div style="grid-column:1/-1"><label>Main Page Image URL / File Path<input id="sMainImage" placeholder="assets/sports-live-banner.png"></label></div>
-          <div style="grid-column:1/-1"><label>Main Image Caption<input id="sMainImageCaption" placeholder="VARANASI SPORTS LIVE — Live Streaming & Multi-Camera Production"></label></div>
-        </div>
-        <div style="margin-top:12px"><button class="btn btnBlue" onclick="saveSite()">Save Site Settings</button></div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:18px">
-          <button class="btn btnGhost" onclick="exportData()">Export Content JSON</button>
-          <button class="btn danger" onclick="resetData()">Reset to Starter Content</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal" id="loginModal"><div class="loginBox"><div class="kicker">Restricted Access</div><h2>Admin Login</h2><p>Only the website administrator should use this area. After login you can edit events, images, rates and site settings.</p><form id="loginForm"><label>Admin Username<input id="adminUser" autocomplete="username" placeholder="Admin username"></label><label style="display:block;margin-top:12px">Admin Password<input id="adminPass" type="password" autocomplete="current-password" placeholder="Enter password"></label><button class="btn btnPrimary" style="width:100%;margin-top:15px" type="submit">Login to Admin Panel</button><div class="loginError" id="loginError">Incorrect admin login.</div></form><div class="adminHint">Your password is checked on the server and is never stored in this page. Sessions use an HttpOnly, SameSite cookie. Use HTTPS on the public site.</div></div></div>
-
-  <div class="toast" id="toast"></div>
-
+  </style></head><body>
+<header class="topbar"><div class="container nav"><a class="brand" href="#home"><img id="brandLogo" src="/assets/logo.png" alt="Logo"><span id="brandName">VARANASI SPORTS LIVE</span></a><button class="menu" onclick="document.getElementById('navlinks').classList.toggle('open')">Menu</button><nav class="navlinks" id="navlinks"><a href="#events">Events</a><a href="#services">Services</a><a href="#packages">Rates</a><a href="#gallery">Gallery</a><a href="#employees">Team</a><a href="#about">Why Us</a><a href="#contact">Book Now</a></nav></div></header>
+<main id="appMain"></main><footer id="appFooter"></footer>
+<button class="adminBtn" title="Admin Login" onclick="openAdmin()">⚙</button>
+<div class="modal" id="adminModal"><div class="modalBox"><div class="modalHead"><div><div class="kicker">SECURE ADMIN</div><h2>Manage Website</h2></div><button class="btn btnGhost" onclick="closeAdmin()">Close</button></div><div id="adminBody"></div></div></div>
+<div class="toast" id="toast"></div>
 <script>
-const YT = "https://www.youtube.com/@VARANASISPORTSLIVE-h8p";
-let data = null;
-let csrfToken = null;
-async function loadPublicData(){
-  const r=await fetch('/api/public-data',{cache:'no-store'});
-  if(!r.ok) throw new Error('Could not load website data');
-  data=await r.json();
-  renderAll();
-}
-async function loadAdminData(){
-  const r=await fetch('/api/admin/data',{cache:'no-store',credentials:'same-origin'});
-  if(!r.ok) throw new Error('Admin session expired');
-  const payload=await r.json();
-  data=payload.data; csrfToken=payload.csrf; renderAll();
-}
-async function saveData(){
-  const r=await fetch('/api/admin/data',{method:'PUT',credentials:'same-origin',headers:{'Content-Type':'application/json','X-CSRF-Token':csrfToken},body:JSON.stringify(data)});
-  if(r.status===401){closeAdmin();openLogin();showToast('Admin session expired');return}
-  if(!r.ok){showToast('Could not save changes');return}
-  await loadAdminData(); showToast('Saved securely');
-}
-function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
-function renderEvents(){
-  const box=document.getElementById("eventList");
-  if(!data.events.length){box.innerHTML='<div class="hint">No events added yet. Use the ⚙ button to add one.</div>';return}
-  box.innerHTML=data.events.map((e,i)=>`<div class="event">
-    <div class="eventThumb">🏟️</div>
-    <div><div class="status">Event Link</div><h3>${esc(e.title)}</h3><p>${esc(e.date)} • ${esc(e.venue)}</p></div>
-    <a class="btn btnGhost" href="${esc(e.link||"#")}" target="_blank" rel="noopener">Open Event →</a>
-  </div>`).join("");
-}
-function renderPackages(){
-  const box=document.getElementById("packageList");
-  box.innerHTML=data.packages.map((p,i)=>`<div class="card package ${i===2?'popular':''}">
-    ${i===2?'<span class="popularLabel">POPULAR</span>':''}
-    <h3>${esc(p.name)}</h3><div class="price">${esc(p.price)} <small>starting</small></div>
-    <div class="editableNote">Suggested rate — edit before publishing</div>
-    <ul class="featureList"><li>${esc(p.includes)}</li><li>Final quote depends on event scope</li><li>Travel / extra hours can be added</li></ul>
-    <a class="btn btnGhost" style="margin-top:15px;width:100%" href="#contact">Request Quote</a>
-  </div>`).join("");
-}
-function renderGallery(){
-  const box=document.getElementById("galleryGrid");
-  if(!data.gallery.length){box.innerHTML='<div class="hint">Add your strongest event photos from the ⚙ panel.</div>';return}
-  box.innerHTML=data.gallery.map(g=>`<div class="galleryItem"><img src="${esc(g.url)}" alt="${esc(g.caption)}" loading="lazy"><div class="caption">${esc(g.caption)}</div></div>`).join("");
-}
-function renderAdmin(){
-  document.getElementById("adminEvents").innerHTML=data.events.map((e,i)=>`<div class="adminItem"><div><b>${esc(e.title)}</b><br><small>${esc(e.date)} • ${esc(e.venue)}</small></div><div class="itemActions"><button class="editBtn" onclick="editEvent(${i})">Edit</button><button class="btn danger" onclick="removeEvent(${i})">Delete</button></div></div>`).join("");
-  document.getElementById("adminGallery").innerHTML=data.gallery.map((g,i)=>`<div class="adminItem"><div><b>${esc(g.caption)}</b><br><small>${esc(g.url)}</small></div><div class="itemActions"><button class="editBtn" onclick="editGallery(${i})">Edit</button><button class="btn danger" onclick="removeGallery(${i})">Delete</button></div></div>`).join("");
-  document.getElementById("adminPackages").innerHTML=data.packages.map((p,i)=>`<div class="adminItem"><div><b>${esc(p.name)} — ${esc(p.price)}</b><br><small>${esc(p.includes)}</small></div><div class="itemActions"><button class="editBtn" onclick="editPackage(${i})">Edit</button><button class="btn danger" onclick="removePackage(${i})">Delete</button></div></div>`).join("");
-  document.getElementById("sName").value=data.site.name||"";document.getElementById("sEmail").value=data.site.email||"";document.getElementById("sPhone").value=data.site.phone||"";document.getElementById("sWhatsapp").value=data.site.whatsapp||data.site.phone||"9506117861";document.getElementById("sLocation").value=data.site.location||"";document.getElementById("sTagline").value=data.site.tagline||"";document.getElementById("sMainImage").value=data.site.mainImage||"assets/sports-live-banner.png";document.getElementById("sMainImageCaption").value=data.site.mainImageCaption||"";
-}
-function renderAll(){if(!data)return;renderEvents();renderPackages();renderGallery();renderMainImage();if(document.getElementById('adminModal').classList.contains('open'))renderAdmin();document.getElementById("year").textContent=new Date().getFullYear()}
-let editingEventIndex=-1,editingGalleryIndex=-1,editingPackageIndex=-1;
-function addEvent(){const e={title:eTitle.value.trim(),date:eDate.value.trim(),venue:eVenue.value.trim(),link:eLink.value.trim()};if(!e.title||!e.link)return showToast("Add a title and link");if(editingEventIndex>=0){data.events[editingEventIndex]=e;editingEventIndex=-1}else data.events.push(e);eTitle.value=eDate.value=eVenue.value=eLink.value="";saveData()}
-function addGallery(){const g={url:gUrl.value.trim(),caption:gCaption.value.trim()||"Event highlight"};if(!g.url)return showToast("Add an image URL");if(editingGalleryIndex>=0){data.gallery[editingGalleryIndex]=g;editingGalleryIndex=-1}else data.gallery.push(g);gUrl.value=gCaption.value="";saveData()}
-function addPackage(){const p={name:pName.value.trim(),price:pPrice.value.trim(),includes:pIncludes.value.trim()};if(!p.name||!p.price)return showToast("Add package name and price");if(editingPackageIndex>=0){data.packages[editingPackageIndex]=p;editingPackageIndex=-1}else data.packages.push(p);pName.value=pPrice.value=pIncludes.value="";saveData()}
-function removeEvent(i){data.events.splice(i,1);saveData()};function removeGallery(i){data.gallery.splice(i,1);saveData()};function removePackage(i){data.packages.splice(i,1);saveData()}
-function renderMainImage(){const box=document.getElementById("mainImageWrap");const src=data.site.mainImage||"assets/sports-live-banner.png";const caption=data.site.mainImageCaption||"VARANASI SPORTS LIVE";box.innerHTML=`<img src="${esc(src)}" alt="${esc(caption)}"><div class="mainContentCaption"><div><strong>${esc(caption)}</strong><br><span>Featured website content</span></div><span class="editChip">⚙ Change from Admin Login</span></div>`;}
-function editEvent(i){const e=data.events[i];editingEventIndex=i;eTitle.value=e.title||"";eDate.value=e.date||"";eVenue.value=e.venue||"";eLink.value=e.link||"";showToast("Loaded event for editing");}
-function editGallery(i){const g=data.gallery[i];editingGalleryIndex=i;gUrl.value=g.url||"";gCaption.value=g.caption||"";showToast("Loaded image for editing");}
-function editPackage(i){const x=data.packages[i];editingPackageIndex=i;pName.value=x.name||"";pPrice.value=x.price||"";pIncludes.value=x.includes||"";showToast("Loaded package for editing");}
-function saveSite(){data.site={name:sName.value.trim()||"Varanasi Sports Live",email:sEmail.value.trim(),phone:sPhone.value.trim(),whatsapp:sWhatsapp.value.replace(/\D/g,"").trim()||"9506117861",location:sLocation.value.trim(),tagline:sTagline.value.trim(),mainImage:sMainImage.value.trim()||"assets/sports-live-banner.png",mainImageCaption:sMainImageCaption.value.trim()||"VARANASI SPORTS LIVE"};saveData()}
-function resetData(){showToast('Reset is disabled in privacy mode')}
-async function exportData(){const r=await fetch('/api/admin/data',{credentials:'same-origin',cache:'no-store'});if(!r.ok){showToast('Admin session expired');return}const x=await r.json();const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(x.data,null,2)],{type:'application/json'}));a.download='varanasi-sports-live-content.json';a.click()}
-async function openAdmin(){try{await loadAdminData();document.getElementById("adminModal").classList.add("open")}catch{closeAdmin();openLogin()}}
-function closeAdmin(){document.getElementById("adminModal").classList.remove("open")}
-function toggleMenu(){document.getElementById("navlinks").classList.toggle("open")}
-function showToast(t){const x=document.getElementById("toast");x.textContent=t;x.classList.add("show");setTimeout(()=>x.classList.remove("show"),1800)}
-document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".panel").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.getElementById(b.dataset.panel).classList.add("active")}));
-function openLogin(){document.getElementById("loginModal").classList.add("open");setTimeout(()=>document.getElementById("adminPass").focus(),100)}
-function closeLogin(){document.getElementById("loginModal").classList.remove("open")}
-async function logoutAdmin(){await fetch('/api/logout',{method:'POST',credentials:'same-origin'});csrfToken=null;closeAdmin();showToast('Logged out')}
-const loginFormEl=document.getElementById("loginForm"), loginUserEl=document.getElementById("adminUser"), loginPassEl=document.getElementById("adminPass"), loginErrorEl=document.getElementById("loginError");
-loginFormEl.addEventListener("submit",async e=>{
-  e.preventDefault(); loginErrorEl.style.display='none';
-  if(location.protocol==='file:'){loginErrorEl.textContent='Please start the included Node.js server (not the HTML file directly) to use the private Admin Login.';loginErrorEl.style.display='block';return}
-  try{
-    const r=await fetch('/api/login',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:loginUserEl.value.trim(),password:loginPassEl.value})});
-    if(!r.ok){loginErrorEl.textContent='Incorrect Admin ID or Password.';loginErrorEl.style.display='block';return}
-    const x=await r.json(); csrfToken=x.csrf; await loadAdminData(); closeLogin(); openAdmin(); loginPassEl.value='';
-  }catch{loginErrorEl.textContent='Login server is unavailable. Start the website server and try again.';loginErrorEl.style.display='block'}
-});
-document.getElementById("loginModal").addEventListener("click",e=>{if(e.target.id==="loginModal")closeLogin()});
-function buildQuery(){return `NEW EVENT QUERY — VARANASI SPORTS LIVE\n\nClient Name: ${qName.value.trim()}\nClient Number: ${qPhone.value.trim()}\nSport/Event: ${qEvent.value.trim()||"Not specified"}\nEvent Date: ${qDate.value||"Not specified"}\nVenue/City: ${qVenue.value.trim()||"Not specified"}\nRequirements: ${qNeed.value.trim()||"Not specified"}\n\nPlease contact the client for further details.`}
-function validateClientQuery(){if(!qName.value.trim()||!qPhone.value.trim()){showToast('Client Name and Client Number are required');return false}return true}
-document.getElementById("quoteForm").addEventListener("submit",e=>{e.preventDefault();if(!validateClientQuery())return;const wa=(data.site.whatsapp||"9506117861").replace(/\D/g,"");if(!wa){showToast('Admin WhatsApp number is not configured');return}const text=buildQuery();window.open(`https://wa.me/${wa}?text=${encodeURIComponent(text)}`,"_blank")});
-document.getElementById("emailQueryBtn").addEventListener("click",()=>{if(!validateClientQuery())return;const email=(data.site.email||"").trim();if(!email){showToast('Admin email is not configured. Add it in Admin → Site Settings.');return}const subject='New Event Query — Varanasi Sports Live';window.location.href=`mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(buildQuery())}`});
-document.getElementById("adminModal").addEventListener("click",e=>{if(e.target.id==="adminModal")closeAdmin()});
-loadPublicData().catch(()=>{showToast('Website data could not be loaded')});
-</script>
-</body>
-</html>
+const YT='https://www.youtube.com/@VARANASISPORTSLIVE-h8p';let data=null,csrf=null,editing={event:null,service:null,rate:null,gallery:null,employee:null};
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+const lines=s=>String(s??'').split('\n').map(x=>x.trim()).filter(Boolean);
+const D={site:{name:'Varanasi Sports Live',email:'',phone:'9506117861',whatsapp:'9506117861',location:'Varanasi, Uttar Pradesh, India',tagline:'Professional Sports Broadcasting & Live Streaming',logo:'/assets/logo.png',mainImage:'/assets/sports-live-banner.png',mainImageCaption:'Live Streaming & Multi-Camera Production',youtube:YT,footerText:'Professional sports broadcasting, live streaming and digital sports coverage.'},home:{eyebrow:'SPORTS BROADCASTING • VARANASI',title:'Make your match look broadcast-grade.',description:'Live sports coverage with multi-angle production, graphics, recording and event promotion built around your tournament.',primaryButton:'Watch YouTube Channel',secondaryButton:'Request a Quote',thirdButton:'Upcoming Events',stat1Value:'11.2K',stat1Label:'YouTube subscribers',stat2Value:'1,300+',stat2Label:'Channel videos',stat3Value:'1.26M+',stat3Label:'Channel views',trust1:'📡 Live Streaming',trust2:'🎥 Up to 4 Camera Angles',trust3:'🖥️ 4K-Capable Workflow',trust4:'🏏 Sports Focused'},showcase:{kicker:'Brand & Production Showcase',title:'One brand. Powerful sports visuals.',description:'Show your brand, live production work and sports coverage in one professional portfolio.',logoImage:'/assets/logo.png',logoCaption:'Official Varanasi Sports Live Brand',bannerImage:'/assets/sports-live-banner.png',bannerCaption:'Broadcasting & Promotion Banner'},servicesSection:{kicker:'What We Deliver',title:'Everything around the live game.',description:'Coverage, presentation, audience reach, sponsor visibility and post-event content.'},services:[{name:'Live Streaming',icon:'📡',description:'Stream matches and tournaments to your YouTube audience with a clean branded presentation.',features:'YouTube live integration\nStable encoder workflow\nLive / upcoming event links'},{name:'Multi-Camera Coverage',icon:'🎥',description:'Use different angles to follow the action instead of one static frame.',features:'Main / wide angle\nClose action angle\nMobile / sideline angle'},{name:'Score & Broadcast Graphics',icon:'📊',description:'Make the stream easier to follow and more valuable for sponsors and organisers.',features:'Scoreboard overlays\nTeam / player lower thirds\nSponsor placements'},{name:'Commentary & Audio',icon:'🎙️',description:'Optional commentary, venue sound and cleaner match audio.',features:'Commentator mic\nMatch / venue audio\nBasic mixing'},{name:'Highlights & Reels',icon:'⚡',description:'Turn one live event into more content for social media and sponsors.',features:'Key moments\nPlayer clips\nPost-match reels'},{name:'Event Promotion',icon:'🏆',description:'Use the website as your booking and promotion hub.',features:'Event landing pages\nGallery & portfolio\nQuote / booking form'}],equipment:{kicker:'Production Setup',title:'The tech behind the coverage.',description:'Present your production capability professionally and update the setup as it evolves.',card1Title:'📱 Mobile Broadcast Kit',card1Description:'Flexible on-location capture for grounds where speed and mobility matter.',card1Tags:'Samsung S24 Ultra\niPhone 17 Pro\nTripods / mounts\nPower backup\nMobile internet',card2Title:'🖥️ Modified Streaming PC',card2Description:'Production workstation for multi-source switching, graphics, recording and streaming.',card2Tags:'4K-capable workflow\nMulti-source capture\nGraphics / overlays\nLocal recording\nEncoder software'},about:{kicker:'Why This Website',title:'Turn viewers into bookings.',description:'A professional website should prove that your sports broadcasting service is organised and ready to hire.',cardTitle:'Built for tournament organisers',cardDescription:'Give organisers one professional link they can send to clubs, teams, sponsors and venue partners.',features:'One-click YouTube channel access\nUpcoming event links\nPortfolio and gallery\nClear package starting prices\nDirect quote / booking form\nMobile-first design for WhatsApp sharing'},process:[{number:'01',name:'Brief',description:'Event date, sport, venue, duration and audience.'},{number:'02',name:'Plan',description:'Camera positions, audio, graphics, internet and crew.'},{number:'03',name:'Broadcast',description:'Capture, switch, brand, stream and record the event.'},{number:'04',name:'Deliver',description:'Archive, highlights, photos and promotional clips.'}],cta:{kicker:'Ready to Broadcast?',title:"Let's make the game look bigger.",description:'Send your event details and get a professional production plan for your tournament.'},contact:{kicker:'Bookings',title:'Tell us about your event.',description:'Send your requirements and connect directly by WhatsApp or email.',directTitle:'Direct channels',coverage:'Local tournaments + travel assignments by requirement',sports:'Cricket\nFootball\nBadminton\nSchool / College Sports\nTournaments'},footer:{copyright:'Varanasi Sports Live. All rights reserved.'},events:[{title:'VARANASI SPORTS LIVE — YouTube Channel',date:'Live & scheduled streams',venue:'Online',link:YT,image:'/assets/logo.png'}],gallery:[{url:'/assets/logo.png',caption:'Varanasi Sports Live — Brand Logo'},{url:'/assets/sports-live-banner.png',caption:'Live Streaming & Multi-Camera Production'}],packages:[{name:'Mobile Starter',price:'₹3,999+',includes:'1 mobile setup, basic live stream, up to 4 hours'},{name:'Dual Angle',price:'₹7,999+',includes:'2 capture angles, operator, basic graphics, recording'},{name:'Pro 4-Camera',price:'₹14,999+',includes:'Up to 4 angles, streaming PC, graphics, recording'},{name:'Tournament',price:'₹24,999+',includes:'4-camera production, full-day coverage, custom requirements'}],employees:[]};
+const clone=x=>JSON.parse(JSON.stringify(x));function merge(a,b){const o=clone(a);if(b&&typeof b==='object')for(const k of Object.keys(b))o[k]=b[k];return o}
+async function api(url,opts={}){const r=await fetch(url,{credentials:'same-origin',...opts});let j={};try{j=await r.json()}catch{}if(!r.ok)throw Error(j.error||'Request failed');return j}
+function toast(t){const x=document.getElementById('toast');x.textContent=t;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),1800)}
+async function loadPublic(){const j=await api('/api/public-data');data=merge(D,j);renderAll()}
+async function loadAdmin(){const j=await api('/api/admin/data');data=merge(D,j.data);csrf=j.csrf;renderAll();renderAdmin()}
+async function saveData(){const j=await api('/api/admin/data',{method:'PUT',headers:{'Content-Type':'application/json','X-CSRF-Token':csrf},body:JSON.stringify(data)});data=merge(D,j.data||data);renderAll();renderAdmin();toast('Saved successfully')}
+async function openAdmin(){document.getElementById('adminModal').classList.add('open');try{const j=await api('/api/admin/session');if(j.authenticated){csrf=j.csrf;await loadAdmin()}else loginForm()}catch{loginForm()}}
+function closeAdmin(){document.getElementById('adminModal').classList.remove('open')}
+function loginForm(){document.getElementById('adminBody').innerHTML='<form onsubmit="event.preventDefault();login()"><div class="adminGrid"><div><label>Username<input id="lu" value="admin" autocomplete="username"></label></div><div><label>Password<input id="lp" type="password" autocomplete="current-password"></label></div></div><button class="btn btnPrimary" style="margin-top:14px">Login</button></form>'}
+async function login(){try{const j=await api('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:document.getElementById('lu').value,password:document.getElementById('lp').value})});csrf=j.csrf;await loadAdmin();toast('Login successful')}catch(e){toast(e.message)}}
+async function logout(){await api('/api/logout',{method:'POST'});csrf=null;loginForm();toast('Logged out')}
+function tabButtons(){const a=[['home','🏠 Home Page'],['brand','🎨 Branding'],['events','📅 Events'],['services','🎥 Services'],['rates','💰 Rates'],['gallery','🖼️ Gallery'],['employees','👨‍💼 Employees'],['contact','📞 Contact'],['about','⭐ About / Why Us'],['footer','🧾 Footer']];return '<div class="tabs">'+a.map(x=>`<button class="tab ${x[0]==='home'?'active':''}" onclick="tab('${x[0]}')">${x[1]}</button>`).join('')+'</div>'}
+function tab(id){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.getAttribute('onclick')===`tab('${id}')`));document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id==='p_'+id))}
+const I=(id,l,v,w=false)=>`<div ${w?'style="grid-column:1/-1"':''}><label>${l}<input id="${id}" value="${esc(v)}"></label></div>`;const A=(id,l,v)=>`<div style="grid-column:1/-1"><label>${l}<textarea id="${id}">${esc(v)}</textarea></label></div>`;const U=(id,l)=>`<div><label>${l}<input id="${id}" type="file" accept="image/*"></label></div>`;
+function renderAdmin(){const h=data.home,x=data.showcase,s=data.site,a=data.about,c=data.contact;document.getElementById('adminBody').innerHTML=`<p class="hint">Each job has a separate tab. Images are uploaded directly—no URL paste. Save writes to PostgreSQL.</p>${tabButtons()}
+<div class="panel active" id="p_home"><div class="adminGrid">${I('h1','Eyebrow',h.eyebrow)}${I('h2','Main Heading',h.title,true)}${A('h3','Main Description',h.description)}${I('h4','Primary Button',h.primaryButton)}${I('h5','Second Button',h.secondaryButton)}${I('h6','Third Button',h.thirdButton)}${I('h7','Stat 1 Value',h.stat1Value)}${I('h8','Stat 1 Label',h.stat1Label)}${I('h9','Stat 2 Value',h.stat2Value)}${I('h10','Stat 2 Label',h.stat2Label)}${I('h11','Stat 3 Value',h.stat3Value)}${I('h12','Stat 3 Label',h.stat3Label)}${I('h13','Trust 1',h.trust1)}${I('h14','Trust 2',h.trust2)}${I('h15','Trust 3',h.trust3)}${I('h16','Trust 4',h.trust4)}${U('homeImg','Front Page Main Image')}</div><button class="btn btnBlue" style="margin-top:14px" onclick="saveHome()">Save Home</button></div>
+<div class="panel" id="p_brand"><div class="adminGrid">${I('b1','Showcase Kicker',x.kicker)}${I('b2','Showcase Heading',x.title,true)}${A('b3','Showcase Description',x.description)}${I('b4','Logo Caption',x.logoCaption)}${I('b5','Banner Caption',x.bannerCaption)}${U('brandLogo','Brand Logo')}${U('brandBanner','Broadcast Banner')}</div><button class="btn btnBlue" style="margin-top:14px" onclick="saveBrand()">Save Branding</button></div>
+<div class="panel" id="p_events"><div class="adminGrid">${I('e1','Event Name','')}${I('e2','Date / Status','')}${I('e3','Venue','')}${I('e4','YouTube / Event Link','')}${U('e5','Event Image')}</div><button class="btn btnBlue" style="margin-top:12px" onclick="saveEvent()">${editing.event==null?'+ Add':'Update'} Event</button> <button class="btn btnGhost" onclick="clearEdit('event')">Clear</button><div id="ae" class="adminList"></div></div>
+<div class="panel" id="p_services"><div class="adminGrid">${I('s1','Service Name','')}${I('s2','Icon / Emoji','🎥')}${A('s3','Description','')}${A('s4','Features — one per line','')}</div><button class="btn btnBlue" style="margin-top:12px" onclick="saveService()">${editing.service==null?'+ Add':'Update'} Service</button> <button class="btn btnGhost" onclick="clearEdit('service')">Clear</button><div id="as" class="adminList"></div></div>
+<div class="panel" id="p_rates"><div class="adminGrid">${I('r1','Package Name','')}${I('r2','Price','')}${A('r3','Includes','')}</div><button class="btn btnBlue" style="margin-top:12px" onclick="saveRate()">${editing.rate==null?'+ Add':'Update'} Package</button> <button class="btn btnGhost" onclick="clearEdit('rate')">Clear</button><div id="ar" class="adminList"></div></div>
+<div class="panel" id="p_gallery"><div class="adminGrid">${U('g1','Upload Image')}${I('g2','Caption','')}</div><button class="btn btnBlue" style="margin-top:12px" onclick="saveGallery()">${editing.gallery==null?'+ Add':'Update'} Image</button> <button class="btn btnGhost" onclick="clearEdit('gallery')">Clear</button><p class="hint">Direct upload only.</p><div id="ag" class="adminList"></div></div>
+<div class="panel" id="p_employees"><div class="adminGrid">${I('m1','Full Name','')}${I('m2','Phone Number','')}${I('m3','Aadhar Number','')}${I('m4','Designation','')}${I('m5','Experience','')}${U('m6','Profile Picture')}${A('m7','Address','')}</div><button class="btn btnBlue" style="margin-top:12px" onclick="saveEmployee()">${editing.employee==null?'+ Add':'Update'} Employee</button> <button class="btn btnGhost" onclick="clearEdit('employee')">Clear</button><div id="am" class="adminList"></div></div>
+<div class="panel" id="p_contact"><div class="adminGrid">${I('c1','Business Name',s.name)}${I('c2','Enquiry Email',s.email)}${I('c3','Phone',s.phone)}${I('c4','WhatsApp',s.whatsapp)}${I('c5','Location',s.location)}${I('c6','YouTube Channel',s.youtube,true)}${I('c7','Tagline',s.tagline,true)}${I('c8','Direct Channels Heading',c.directTitle)}${I('c9','Coverage Text',c.coverage,true)}${A('c10','Sports / Categories — one per line',c.sports)}</div><button class="btn btnBlue" style="margin-top:12px" onclick="saveContact()">Save Contact</button></div>
+<div class="panel" id="p_about"><div class="adminGrid">${I('a1','Kicker',a.kicker)}${I('a2','Heading',a.title,true)}${A('a3','Description',a.description)}${I('a4','Card Heading',a.cardTitle)}${A('a5','Card Description',a.cardDescription)}${A('a6','Features — one per line',a.features)}</div><h3>Process Steps</h3><div class="adminGrid">${data.process.map((p,i)=>`<div class="card"><b>Step ${i+1}</b>${I('pn'+i,'Number',p.number)}${I('pt'+i,'Title',p.name)}${A('pd'+i,'Description',p.description)}</div>`).join('')}</div><button class="btn btnBlue" style="margin-top:12px" onclick="saveAbout()">Save About</button></div>
+<div class="panel" id="p_footer"><div class="adminGrid">${I('f1','Copyright',data.footer.copyright,true)}${I('f2','CTA Kicker',data.cta.kicker)}${I('f3','CTA Heading',data.cta.title,true)}${A('f4','CTA Description',data.cta.description)}${A('f5','Footer Business Text',s.footerText)}</div><button class="btn btnBlue" style="margin-top:12px" onclick="saveFooter()">Save Footer</button></div>
+<div style="margin-top:20px"><button class="btn btnGhost" onclick="saveData()">💾 Save All Changes</button> <button class="btn danger" onclick="logout()">Logout</button></div>`;renderAdminLists()}
+async function img(id){const f=document.getElementById(id)?.files?.[0];if(!f)return null;return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const max=1400,sc=Math.min(1,max/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*sc);c.height=Math.round(im.height*sc);c.getContext('2d').drawImage(im,0,0,c.width,c.height);res(c.toDataURL('image/webp',.82))};im.onerror=rej;im.src=r.result};r.onerror=rej;r.readAsDataURL(f)})}
+function setv(id,v){const x=document.getElementById(id);if(x)x.value=v??''}function clearEdit(t){editing[t]=null;renderAdmin()}
+function edit(t,i){editing[t]=i;renderAdmin();tab(t==='event'?'events':t==='service'?'services':t==='rate'?'rates':t==='gallery'?'gallery':'employees');const x=t==='event'?data.events[i]:t==='service'?data.services[i]:t==='rate'?data.packages[i]:t==='gallery'?data.gallery[i]:data.employees[i];if(t==='event'){setv('e1',x.title);setv('e2',x.date);setv('e3',x.venue);setv('e4',x.link)}if(t==='service'){setv('s1',x.name);setv('s2',x.icon);setv('s3',x.description);setv('s4',x.features)}if(t==='rate'){setv('r1',x.name);setv('r2',x.price);setv('r3',x.includes)}if(t==='gallery'){setv('g2',x.caption)}if(t==='employee'){setv('m1',x.name);setv('m2',x.phone);setv('m3',x.aadhar);setv('m4',x.designation);setv('m5',x.experience);setv('m7',x.address)}}
+async function del(t,i){if(!confirm('Delete this item?'))return;const map={event:'events',service:'services',rate:'packages',gallery:'gallery',employee:'employees'};data[map[t]].splice(i,1);await saveData()}
+function buttons(t,i){return `<button class="btn btnGhost" onclick="edit('${t}',${i})">Edit</button> <button class="btn danger" onclick="del('${t}',${i})">Delete</button>`}
+function renderAdminLists(){const put=(id,h)=>{const x=document.getElementById(id);if(x)x.innerHTML=h};put('ae',data.events.map((x,i)=>`<div class="adminItem"><div><b>${esc(x.title)}</b><br><small>${esc(x.date)} • ${esc(x.venue)}</small></div><div>${buttons('event',i)}</div></div>`).join(''));put('as',(data.services||[]).map((x,i)=>`<div class="adminItem"><div><b>${esc(x.icon)} ${esc(x.name)}</b><br><small>${esc(x.description)}</small></div><div>${buttons('service',i)}</div></div>`).join(''));put('ar',data.packages.map((x,i)=>`<div class="adminItem"><div><b>${esc(x.name)} — ${esc(x.price)}</b><br><small>${esc(x.includes)}</small></div><div>${buttons('rate',i)}</div></div>`).join(''));put('ag',data.gallery.map((x,i)=>`<div class="adminItem"><div><img src="${esc(x.url)}" style="width:65px;height:45px;object-fit:cover;border-radius:8px;display:inline-block;vertical-align:middle;margin-right:8px"><b>${esc(x.caption)}</b></div><div>${buttons('gallery',i)}</div></div>`).join(''));put('am',(data.employees||[]).map((x,i)=>`<div class="adminItem"><div style="display:flex;gap:10px;align-items:center"><img src="${esc(x.image||data.site.logo)}" style="width:55px;height:55px;object-fit:cover;border-radius:50%"><div><b>${esc(x.name)}</b><br><small>${esc(x.designation)} • ${esc(x.phone)}</small></div></div><div>${buttons('employee',i)}</div></div>`).join(''))}
+async function saveHome(){Object.assign(data.home,{eyebrow:val('h1'),title:val('h2'),description:val('h3'),primaryButton:val('h4'),secondaryButton:val('h5'),thirdButton:val('h6'),stat1Value:val('h7'),stat1Label:val('h8'),stat2Value:val('h9'),stat2Label:val('h10'),stat3Value:val('h11'),stat3Label:val('h12'),trust1:val('h13'),trust2:val('h14'),trust3:val('h15'),trust4:val('h16')});const x=await img('homeImg');if(x)data.site.mainImage=x;await saveData()}
+async function saveBrand(){Object.assign(data.showcase,{kicker:val('b1'),title:val('b2'),description:val('b3'),logoCaption:val('b4'),bannerCaption:val('b5')});const l=await img('brandLogo'),b=await img('brandBanner');if(l)data.showcase.logoImage=l;if(b)data.showcase.bannerImage=b;await saveData()}
+async function saveEvent(){const old=editing.event!=null?data.events[editing.event]:null,x={title:val('e1'),date:val('e2'),venue:val('e3'),link:val('e4'),image:old?.image||data.site.logo};if(!x.title||!x.link)return toast('Event name and link required');const im=await img('e5');if(im)x.image=im;if(editing.event!=null)data.events[editing.event]=x;else data.events.push(x);editing.event=null;await saveData()}
+async function saveService(){const x={name:val('s1'),icon:val('s2')||'🎥',description:val('s3'),features:val('s4')};if(!x.name)return toast('Service name required');if(editing.service!=null)data.services[editing.service]=x;else data.services.push(x);editing.service=null;await saveData()}
+async function saveRate(){const x={name:val('r1'),price:val('r2'),includes:val('r3')};if(!x.name||!x.price)return toast('Package name and price required');if(editing.rate!=null)data.packages[editing.rate]=x;else data.packages.push(x);editing.rate=null;await saveData()}
+async function saveGallery(){const old=editing.gallery!=null?data.gallery[editing.gallery]:null,x={caption:val('g2')||'Event highlight',url:old?.url||''};const im=await img('g1');if(im)x.url=im;if(!x.url)return toast('Please upload an image');if(editing.gallery!=null)data.gallery[editing.gallery]=x;else data.gallery.push(x);editing.gallery=null;await saveData()}
+async function saveEmployee(){const old=editing.employee!=null?data.employees[editing.employee]:null,x={name:val('m1'),phone:val('m2'),aadhar:val('m3'),address:val('m7'),experience:val('m5'),designation:val('m4'),image:old?.image||''};if(!x.name||!x.phone||!x.designation)return toast('Name, phone and designation required');const im=await img('m6');if(im)x.image=im;if(editing.employee!=null)data.employees[editing.employee]=x;else data.employees.push(x);editing.employee=null;await saveData()}
+function saveContact(){Object.assign(data.site,{name:val('c1'),email:val('c2'),phone:val('c3'),whatsapp:val('c4'),location:val('c5'),youtube:val('c6')||YT,tagline:val('c7')});Object.assign(data.contact,{directTitle:val('c8'),coverage:val('c9'),sports:val('c10')});saveData()}
+function saveAbout(){Object.assign(data.about,{kicker:val('a1'),title:val('a2'),description:val('a3'),cardTitle:val('a4'),cardDescription:val('a5'),features:val('a6')});data.process=data.process.map((x,i)=>({number:val('pn'+i),name:val('pt'+i),description:val('pd'+i)}));saveData()}
+function saveFooter(){data.footer.copyright=val('f1');Object.assign(data.cta,{kicker:val('f2'),title:val('f3'),description:val('f4')});data.site.footerText=val('f5');saveData()}
+function val(id){return document.getElementById(id)?.value?.trim()||''}
+function renderAll(){if(!data)return;const s=data.site,h=data.home,x=data.showcase,ss=data.servicesSection,e=data.equipment,a=data.about,c=data.contact;document.getElementById('brandLogo').src=s.logo||'/assets/logo.png';document.getElementById('brandName').textContent=s.name;document.getElementById('appMain').innerHTML=`<section class="hero" id="home"><div class="container heroGrid"><div><div class="eyebrow"><span class="dot"></span>${esc(h.eyebrow)}</div><h1>${esc(h.title)}</h1><p class="lead">${esc(h.description)}</p><div class="actions"><a class="btn btnPrimary" href="${esc(s.youtube)}" target="_blank">▶ ${esc(h.primaryButton)}</a><a class="btn btnBlue" href="#contact">${esc(h.secondaryButton)}</a><a class="btn btnGhost" href="#events">${esc(h.thirdButton)}</a></div><div class="trust"><span>${esc(h.trust1)}</span><span>${esc(h.trust2)}</span><span>${esc(h.trust3)}</span><span>${esc(h.trust4)}</span></div></div><div class="heroCard"><div class="screen"><span class="liveBadge">● LIVE READY</span><img src="${esc(s.mainImage||s.logo)}" alt="${esc(s.mainImageCaption)}"><div class="screenText"><div><strong>${esc(s.name)}</strong><br><small>${esc(s.tagline)}</small></div><div><small>YOUTUBE</small></div></div></div><div class="stats"><div class="stat"><b>${esc(h.stat1Value)}</b><span>${esc(h.stat1Label)}</span></div><div class="stat"><b>${esc(h.stat2Value)}</b><span>${esc(h.stat2Label)}</span></div><div class="stat"><b>${esc(h.stat3Value)}</b><span>${esc(h.stat3Label)}</span></div></div></div></div></section><section id="showcase"><div class="container"><div class="sectionHead"><div><div class="kicker">${esc(x.kicker)}</div><h2>${esc(x.title)}</h2></div><p>${esc(x.description)}</p></div><div class="brandShowcase"><div class="showcaseLogo card"><img src="${esc(x.logoImage)}" alt="Brand logo"><div class="showcaseCaption"><strong>${esc(x.logoCaption)}</strong></div></div><div class="showcaseBanner card"><img src="${esc(x.bannerImage)}" alt="Broadcast banner"><div class="showcaseCaption"><strong>${esc(x.bannerCaption)}</strong></div></div></div></div></section><section id="events"><div class="container"><div class="sectionHead"><div><div class="kicker">Live & Upcoming</div><h2>Your events, in one place.</h2></div><p>Add live links and event photos from Admin.</p></div><div id="eventList" class="card" style="display:grid;gap:12px"></div></div></section><section id="services"><div class="container"><div class="sectionHead"><div><div class="kicker">${esc(ss.kicker)}</div><h2>${esc(ss.title)}</h2></div><p>${esc(ss.description)}</p></div><div id="serviceList" class="grid3"></div></div></section><section id="equipment"><div class="container"><div class="sectionHead"><div><div class="kicker">${esc(e.kicker)}</div><h2>${esc(e.title)}</h2></div><p>${esc(e.description)}</p></div><div class="equipment"><div class="card"><h3>${esc(e.card1Title)}</h3><p>${esc(e.card1Description)}</p><div style="margin-top:12px">${lines(e.card1Tags).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div></div><div class="card"><h3>${esc(e.card2Title)}</h3><p>${esc(e.card2Description)}</p><div style="margin-top:12px">${lines(e.card2Tags).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div></div></div></div></section><section id="packages"><div class="container"><div class="sectionHead"><div><div class="kicker">Rate Card</div><h2>Packages you can sell.</h2></div><p>Edit rates anytime from Admin.</p></div><div id="packageList" class="grid4"></div></div></section><section id="gallery"><div class="container"><div class="sectionHead"><div><div class="kicker">Portfolio</div><h2>Show the proof.</h2></div><p>Your latest sports and production photos.</p></div><div id="galleryGrid" class="gallery"></div></div></section><section id="employees"><div class="container"><div class="sectionHead"><div><div class="kicker">Our Team</div><h2>Meet the people behind the broadcast.</h2></div><p>Professional crew for sports production and live streaming.</p></div><div id="employeeGrid" class="grid4"></div></div></section><section id="about"><div class="container"><div class="sectionHead"><div><div class="kicker">${esc(a.kicker)}</div><h2>${esc(a.title)}</h2></div><p>${esc(a.description)}</p></div><div class="why"><div class="card"><h3>${esc(a.cardTitle)}</h3><p>${esc(a.cardDescription)}</p><ul class="featureList">${lines(a.features).map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div><div class="card"><h3>Simple production workflow</h3><div class="process" style="margin-top:20px">${data.process.map(p=>`<div class="step"><b>${esc(p.number)}</b><h3>${esc(p.name)}</h3><p>${esc(p.description)}</p></div>`).join('')}</div></div></div></div></section><section><div class="container"><div class="cta"><div><div class="kicker">${esc(data.cta.kicker)}</div><h2>${esc(data.cta.title)}</h2><p>${esc(data.cta.description)}</p></div><div class="actions" style="margin:0"><a class="btn btnPrimary" href="#contact">${esc(h.secondaryButton)}</a><a class="btn btnGhost" href="${esc(s.youtube)}" target="_blank">Open YouTube</a></div></div></div></section><section id="contact"><div class="container"><div class="sectionHead"><div><div class="kicker">${esc(c.kicker)}</div><h2>${esc(c.title)}</h2></div><p>${esc(c.description)}</p></div><div class="contactGrid"><div class="card"><h3>${esc(c.directTitle)}</h3><p style="margin-top:8px">Phone: <a style="color:#6ca7ff" href="tel:${esc(s.phone)}">${esc(s.phone)}</a></p><p style="margin-top:8px">WhatsApp: <a style="color:#6ca7ff" href="https://wa.me/${esc(String(s.whatsapp).replace(/\D/g,''))}" target="_blank">${esc(s.whatsapp)}</a></p><p style="margin-top:8px">Email: ${esc(s.email||'Set from Admin')}</p><p style="margin-top:8px">Location: ${esc(s.location)}</p><p style="margin-top:8px">${esc(c.coverage)}</p><div class="trust" style="margin-top:18px">${lines(c.sports).map(t=>`<span>${esc(t)}</span>`).join('')}</div></div><div class="card"><form id="quoteForm"><div class="row"><div><label>Name<input id="qName" required placeholder="Your name"></label></div><div><label>Phone / WhatsApp<input id="qPhone" required placeholder="+91 ..."></label></div></div><div class="row"><div><label>Sport / Event<input id="qEvent" placeholder="Cricket tournament"></label></div><div><label>Event Date<input id="qDate" type="date"></label></div></div><div><label>Venue / City<input id="qVenue" placeholder="Venue, city"></label></div><div><label>What do you need?<textarea id="qNeed" placeholder="4-camera live stream, scoreboard, commentary, highlights..."></textarea></label></div><div class="actions"><button class="btn btnPrimary" type="submit">Send WhatsApp</button><button class="btn btnGhost" type="button" onclick="sendEmail()">Send Email</button></div><div class="hint">Phone number is required.</div></form></div></div></div></section>`;document.getElementById('appFooter').innerHTML=`<div class="container footerGrid"><div>© <span id="year"></span> ${esc(data.footer.copyright)}</div><div class="footerLinks"><a href="#home">Home</a><a href="#services">Services</a><a href="#packages">Rates</a><a href="#gallery">Gallery</a><a href="#employees">Team</a><a href="#contact">Book</a><a href="${esc(s.youtube)}" target="_blank">YouTube</a></div></div>`;document.getElementById('year').textContent=new Date().getFullYear();const ev=document.getElementById('eventList');ev.innerHTML=data.events.length?data.events.map(e=>`<div class="event"><div class="eventThumb">${e.image?`<img src="${esc(e.image)}" style="width:100%;height:100%;object-fit:cover;border-radius:13px">`:'🏟️'}</div><div><div class="status">Event Link</div><h3>${esc(e.title)}</h3><p>${esc(e.date)} • ${esc(e.venue)}</p></div><a class="btn btnGhost" href="${esc(e.link||'#')}" target="_blank">Open Event →</a></div>`).join(''):'<div class="hint">No events added yet.</div>';document.getElementById('serviceList').innerHTML=data.services.map(x=>`<div class="card"><div class="icon">${esc(x.icon)}</div><h3>${esc(x.name)}</h3><p>${esc(x.description)}</p><ul class="featureList">${lines(x.features).map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div>`).join('');document.getElementById('packageList').innerHTML=data.packages.map((p,i)=>`<div class="card package ${i===2?'popular':''}">${i===2?'<span class="popularLabel">POPULAR</span>':''}<h3>${esc(p.name)}</h3><div class="price">${esc(p.price)} <small>starting</small></div><ul class="featureList"><li>${esc(p.includes)}</li><li>Final quote depends on event scope</li></ul><a class="btn btnGhost" style="margin-top:15px;width:100%" href="#contact">Request Quote</a></div>`).join('');document.getElementById('galleryGrid').innerHTML=data.gallery.length?data.gallery.map(g=>`<div class="galleryItem"><img src="${esc(g.url)}" alt="${esc(g.caption)}" loading="lazy"><div class="caption">${esc(g.caption)}</div></div>`).join(''):'<div class="hint">No gallery images added yet.</div>';document.getElementById('employeeGrid').innerHTML=(data.employees||[]).length?data.employees.map(e=>`<div class="card" style="text-align:center"><img src="${esc(e.image||s.logo)}" style="width:130px;height:130px;object-fit:cover;border-radius:50%;margin:0 auto 15px;border:2px solid #2d3949"><h3>${esc(e.name)}</h3><p style="color:#6ca7ff;font-weight:800">${esc(e.designation)}</p><p style="margin-top:8px">Experience: ${esc(e.experience)}</p><p style="margin-top:8px">${esc(e.phone)}</p></div>`).join(''):'<div class="hint">Team profiles will appear here after you add employees from Admin.</div>';document.getElementById('quoteForm').addEventListener('submit',e=>{e.preventDefault();sendWhatsApp()})}
+function sendWhatsApp(){const s=data.site,n=val('qName'),p=val('qPhone');if(!n||!p)return toast('Name and phone are required');const b=`Name: ${n}\nPhone: ${p}\nSport/Event: ${val('qEvent')}\nDate: ${val('qDate')}\nVenue: ${val('qVenue')}\nRequirements: ${val('qNeed')}`,num=String(s.whatsapp||s.phone||'').replace(/\D/g,'');if(!num)return toast('Set WhatsApp in Admin');location.href=`https://wa.me/${num}?text=${encodeURIComponent(b)}`}
+function sendEmail(){const s=data.site,n=val('qName'),p=val('qPhone');if(!n||!p)return toast('Name and phone are required');if(!s.email)return toast('Set enquiry email in Admin');const b=`Name: ${n}\nPhone: ${p}\nSport/Event: ${val('qEvent')}\nDate: ${val('qDate')}\nVenue: ${val('qVenue')}\nRequirements: ${val('qNeed')}`;location.href=`mailto:${encodeURIComponent(s.email)}?subject=${encodeURIComponent('Sports Broadcast Enquiry')}&body=${encodeURIComponent(b)}`}
+document.addEventListener('click',e=>{if(e.target.id==='adminModal')closeAdmin()});loadPublic().catch(e=>{console.error(e);toast('Website data could not load')});
+</script></body></html>
