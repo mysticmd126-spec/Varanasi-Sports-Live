@@ -28,7 +28,7 @@ const SESSION_TTL=2*60*60*1000;
 const MAX_BODY=10*1024*1024;
 
 const DEFAULT_DATA={
-  site:{name:'Varanasi Sports Live',email:'',phone:'9506117861',callPhone:'8127126408',whatsapp:'9506117861',facebook:'https://www.facebook.com/share/18PCZY6K6Q/',instagram:'https://www.instagram.com/varanasi_sports_live?igsi=eHdnMmsweGhsenYy',location:'Varanasi, Uttar Pradesh, India',tagline:'Professional Sports Broadcasting & Live Streaming',logo:'/assets/logo.png',mainImage:'/assets/sports-live-banner.png',mainImageCaption:'Live Streaming & Multi-Camera Production',youtube:'https://www.youtube.com/@VARANASISPORTSLIVE-h8p',footerText:'Professional sports broadcasting, live streaming and digital sports coverage.'},
+  site:{name:'Varanasi Sports Live',email:'',phone:'9506117861',whatsapp:'9506117861',location:'Varanasi, Uttar Pradesh, India',tagline:'Professional Sports Broadcasting & Live Streaming',logo:'/assets/logo.png',mainImage:'/assets/sports-live-banner.png',mainImageCaption:'Live Streaming & Multi-Camera Production',youtube:'https://www.youtube.com/@VARANASISPORTSLIVE-h8p',footerText:'Professional sports broadcasting, live streaming and digital sports coverage.'},
   home:{eyebrow:'SPORTS BROADCASTING • VARANASI',title:'Make your match look broadcast-grade.',description:'Live sports coverage with multi-angle production, graphics, recording and event promotion built around your tournament.',primaryButton:'Watch YouTube Channel',secondaryButton:'Request a Quote',thirdButton:'Upcoming Events',stat1Value:'11.2K',stat1Label:'YouTube subscribers',stat2Value:'1,300+',stat2Label:'Channel videos',stat3Value:'1.26M+',stat3Label:'Channel views',trust1:'📡 Live Streaming',trust2:'🎥 Up to 4 Camera Angles',trust3:'🖥️ 4K-Capable Workflow',trust4:'🏏 Sports Focused'},
   showcase:{kicker:'Brand & Production Showcase',title:'One brand. Powerful sports visuals.',description:'Show your brand, live production work and sports coverage in one professional portfolio.',logoImage:'/assets/logo.png',logoCaption:'Official Varanasi Sports Live Brand',bannerImage:'/assets/sports-live-banner.png',bannerCaption:'Broadcasting & Promotion Banner'},
   servicesSection:{kicker:'What We Deliver',title:'Everything around the live game.',description:'Coverage, presentation, audience reach, sponsor visibility and post-event content.'},
@@ -67,11 +67,20 @@ function currentAdminUsername(){const d=loadData();return String(d.adminCredenti
 function publicData(){const d=loadData();delete d.adminCredentials;return d}
 function json(res,status,obj,extra={}){res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store',...extra});res.end(JSON.stringify(obj));}
 function securityHeaders(){return {'X-Content-Type-Options':'nosniff','X-Frame-Options':'DENY','Referrer-Policy':'no-referrer','Permissions-Policy':'camera=(), microphone=(), geolocation=()','Content-Security-Policy':"default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"};}
-function sendFile(res,file){const ext=path.extname(file).toLowerCase();const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.svg':'image/svg+xml'};res.writeHead(200,{...securityHeaders(),'Content-Type':types[ext]||'application/octet-stream','Cache-Control':ext==='.html'?'no-store':'public, max-age=86400'});fs.createReadStream(file).pipe(res)}
+function sendFile(res,file){const ext=path.extname(file).toLowerCase();const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.svg':'image/svg+xml','.mp4':'video/mp4'};res.writeHead(200,{...securityHeaders(),'Content-Type':types[ext]||'application/octet-stream','Cache-Control':ext==='.html'?'no-store':'public, max-age=86400'});fs.createReadStream(file).pipe(res)}
 function readBody(req){return new Promise((resolve,reject)=>{let b='';req.on('data',c=>{b+=c;if(Buffer.byteLength(b)>MAX_BODY){reject(new Error('Request too large'));req.destroy()}});req.on('end',()=>{try{resolve(JSON.parse(b||'{}'))}catch{reject(new Error('bad json'))}});req.on('error',reject)})}
 function session(req){const sid=parseCookies(req).vsl_admin;if(!sid)return null;const s=sessions.get(sid);if(!s||s.expires<Date.now()){sessions.delete(sid);return null}s.expires=Date.now()+SESSION_TTL;return {sid,...s}}
 function requireAdmin(req,res){const s=session(req);if(!s){json(res,401,{error:'Unauthorized'},securityHeaders());return null}return s}
 function csrf(req,res,s){const token=req.headers['x-csrf-token'];if(!token||token!==s.csrf){json(res,403,{error:'CSRF validation failed'},securityHeaders());return false}return true}
+function createSession(req,res){
+  const sid=crypto.randomBytes(32).toString('hex');
+  const csrfToken=crypto.randomBytes(32).toString('hex');
+  const expires=Date.now()+SESSION_TTL;
+  sessions.set(sid,{csrf:csrfToken,expires});
+  const secure=req.headers['x-forwarded-proto']==='https'?' Secure;':'';
+  const cookie=`vsl_admin=${encodeURIComponent(sid)}; Path=/; HttpOnly; SameSite=Strict;${secure} Max-Age=${Math.floor(SESSION_TTL/1000)}`;
+  return {csrf:csrfToken,cookie};
+}
 setInterval(()=>{for(const [id,s] of sessions)if(s.expires<Date.now())sessions.delete(id)},15*60*1000).unref();
 const server=http.createServer(async(req,res)=>{try{
   const u=new URL(req.url,`http://${req.headers.host||'localhost'}`);const p=u.pathname;
