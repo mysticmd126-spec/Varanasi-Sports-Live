@@ -1,4 +1,505 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Varanasi Sports Live</title><meta name="description" content="Varanasi Sports Live — sports broadcasting and live streaming."><style>
+<!DOCTYPE html><html lang="en"><!-- =========================================================
+     VARANASI SPORTS LIVE
+     HEADER + 3D ROTATING / JUMPING CRICKET BALL
+     ========================================================= -->
+
+<style>
+
+/* =========================
+   HEADER
+   ========================= */
+
+.topbar {
+  position: relative;
+  z-index: 1000;
+  background: #070a0f;
+  border-bottom: 1px solid #263141;
+}
+
+.topbar .nav {
+  position: relative;
+  min-height: 74px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* =========================
+   LOGO + BRAND NAME
+   ========================= */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  text-decoration: none;
+  color: #f5f7fb;
+
+  font-weight: 800;
+  font-size: 17px;
+
+  position: relative;
+  z-index: 10;
+}
+
+.brand img {
+  width: 52px;
+  height: 52px;
+
+  object-fit: contain;
+  border-radius: 50%;
+
+  display: block;
+}
+
+.brand span {
+  white-space: nowrap;
+}
+
+
+/* =========================
+   NAVIGATION
+   ========================= */
+
+.navlinks {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  position: relative;
+  z-index: 10;
+}
+
+.navlinks a {
+  color: #cbd2dc;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition:
+    color .2s ease,
+    transform .2s ease;
+}
+
+.navlinks a:hover {
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   CENTER CRICKET BALL
+   ========================= */
+
+.header-cricket-ball {
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 64px;
+  height: 64px;
+
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  perspective: 700px;
+
+  pointer-events: none;
+
+  z-index: 20;
+}
+
+
+/* =========================
+   3D LEATHER BALL
+   ========================= */
+
+.cricket-ball {
+
+  position: relative;
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  transform-style: preserve-3d;
+
+  /*
+     Realistic leather red
+  */
+  background:
+
+    radial-gradient(
+      circle at 28% 22%,
+      rgba(255,255,255,.28) 0%,
+      rgba(255,255,255,.10) 9%,
+      transparent 25%
+    ),
+
+    radial-gradient(
+      circle at 65% 72%,
+      rgba(0,0,0,.55) 0%,
+      transparent 55%
+    ),
+
+    linear-gradient(
+      145deg,
+      #5c070e 0%,
+      #a50f1b 28%,
+      #d42031 48%,
+      #8b0c16 72%,
+      #3c0509 100%
+    );
+
+  box-shadow:
+
+    inset -9px -9px 14px rgba(0,0,0,.58),
+
+    inset 5px 5px 9px rgba(255,255,255,.15),
+
+    0 8px 18px rgba(0,0,0,.65),
+
+    0 0 12px rgba(220,30,50,.18);
+
+  animation: cricketBallMotion 2.1s ease-in-out infinite;
+
+}
+
+
+/* =========================
+   CRICKET BALL SEAM
+   ========================= */
+
+.ball-seam {
+
+  position: absolute;
+
+  width: 72px;
+  height: 23px;
+
+  left: -12px;
+  top: 12px;
+
+  border-top:
+    2px solid rgba(255,255,255,.95);
+
+  border-bottom:
+    2px solid rgba(255,255,255,.95);
+
+  border-radius: 50%;
+
+  transform:
+    rotate(-38deg);
+
+  box-shadow:
+
+    0 -1px 0 rgba(255,255,255,.25),
+
+    0 1px 0 rgba(0,0,0,.5);
+
+}
+
+
+/* =========================
+   SEAM STITCHES
+   ========================= */
+
+.ball-seam::before,
+.ball-seam::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background: #f5e4d7;
+
+  box-shadow:
+
+    8px 0 #f5e4d7,
+    16px 0 #f5e4d7,
+    24px 0 #f5e4d7,
+    32px 0 #f5e4d7,
+    40px 0 #f5e4d7,
+    48px 0 #f5e4d7,
+    56px 0 #f5e4d7;
+
+}
+
+.ball-seam::before {
+
+  left: 5px;
+  top: -4px;
+
+}
+
+.ball-seam::after {
+
+  left: 5px;
+  bottom: -4px;
+
+}
+
+
+/* =========================
+   BALL ROTATION + JUMP
+   ========================= */
+
+@keyframes cricketBallMotion {
+
+  0% {
+
+    transform:
+      translateY(5px)
+      rotateX(0deg)
+      rotateY(0deg)
+      rotateZ(0deg);
+
+  }
+
+  20% {
+
+    transform:
+      translateY(-4px)
+      rotateX(70deg)
+      rotateY(55deg)
+      rotateZ(25deg);
+
+  }
+
+  40% {
+
+    transform:
+      translateY(-13px)
+      rotateX(145deg)
+      rotateY(130deg)
+      rotateZ(55deg);
+
+  }
+
+  50% {
+
+    transform:
+      translateY(-16px)
+      rotateX(180deg)
+      rotateY(180deg)
+      rotateZ(75deg);
+
+  }
+
+  65% {
+
+    transform:
+      translateY(-10px)
+      rotateX(235deg)
+      rotateY(240deg)
+      rotateZ(100deg);
+
+  }
+
+  80% {
+
+    transform:
+      translateY(-3px)
+      rotateX(305deg)
+      rotateY(310deg)
+      rotateZ(130deg);
+
+  }
+
+  100% {
+
+    transform:
+      translateY(5px)
+      rotateX(360deg)
+      rotateY(360deg)
+      rotateZ(150deg);
+
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 900px) {
+
+  .header-cricket-ball {
+    width: 52px;
+    height: 52px;
+  }
+
+  .cricket-ball {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ball-seam {
+    width: 61px;
+    height: 19px;
+
+    left: -10px;
+    top: 10px;
+  }
+
+  .navlinks {
+    gap: 16px;
+  }
+
+}
+
+
+/*
+   Very small screens:
+   Hide ball so mobile menu is never blocked.
+*/
+
+@media (max-width: 620px) {
+
+  .header-cricket-ball {
+    display: none;
+  }
+
+  .brand img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .brand span {
+    font-size: 14px;
+  }
+
+}
+
+
+/* =========================
+   ACCESSIBILITY
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .cricket-ball {
+    animation: none;
+  }
+
+}
+
+</style>
+
+
+<header class="topbar">
+
+  <div class="container nav">
+
+
+    <!-- =========================
+         LEFT: LOGO
+         ========================= -->
+
+    <a class="brand" href="#home">
+
+      <img
+        src="assets/logo.png"
+        alt="Varanasi Sports Live logo"
+      >
+
+      <span>
+        Varanasi Sports Live
+      </span>
+
+    </a>
+
+
+    <!-- =========================
+         CENTER: 3D CRICKET BALL
+         ========================= -->
+
+    <div
+      class="header-cricket-ball"
+      aria-hidden="true"
+    >
+
+      <div class="cricket-ball">
+
+        <span class="ball-seam"></span>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         RIGHT: NAVIGATION
+         ========================= -->
+
+    <nav
+      class="navlinks"
+      id="navlinks"
+    >
+
+      <a href="#events">
+        Events
+      </a>
+
+      <a href="#services">
+        Services
+      </a>
+
+      <a href="#packages">
+        Rates
+      </a>
+
+      <a href="#team">
+        Team
+      </a>
+
+      <a href="#about">
+        Why Us
+      </a>
+
+      <a href="#contact">
+        Book Now
+      </a>
+
+    </nav>
+
+
+    <!-- Mobile menu button -->
+    <button
+      class="menu"
+      onclick="toggleMenu()"
+      type="button"
+    >
+      Menu
+    </button>
+
+
+  </div>
+
+</header>
+
+<!-- =========================================================
+     END OF HEADER
+     ========================================================= -->
     :root{
       --bg:#07090d;
       --panel:#10141b;
